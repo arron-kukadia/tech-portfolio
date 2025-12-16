@@ -2,18 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { Skeleton } from '@/components/ui/Skeleton'
+import { SkillBadge } from '@/components/cards/SkillBadge'
 import { usePersonalInfo } from '@/hooks/use-personal-info'
-import { fadeInView, scaleInView } from '@/lib/animations'
-
-const SkillBadge = ({ skill, index }: { skill: string; index: number }) => (
-  <motion.div
-    {...scaleInView(index * 0.05)}
-    whileHover={{ scale: 1.05 }}
-    className="cursor-default rounded-xl border border-violet-500/20 bg-gradient-to-br from-violet-500/10 to-indigo-500/10 px-5 py-3 text-sm font-medium transition-colors hover:border-violet-500/40"
-  >
-    {skill}
-  </motion.div>
-)
+import { fadeInView } from '@/lib/animations'
 
 export const Skills = () => {
   const { data: info, isLoading } = usePersonalInfo()
@@ -24,9 +15,14 @@ export const Skills = () => {
         <div className="container mx-auto px-4 text-center">
           <Skeleton className="mx-auto mb-12 h-20 w-64" />
           <div className="mx-auto flex max-w-4xl flex-wrap justify-center gap-3">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <Skeleton key={i} className="h-12 w-24" />
-            ))}
+            <Skeleton className="h-12 w-24" />
+            <Skeleton className="h-12 w-28" />
+            <Skeleton className="h-12 w-20" />
+            <Skeleton className="h-12 w-24" />
+            <Skeleton className="h-12 w-32" />
+            <Skeleton className="h-12 w-24" />
+            <Skeleton className="h-12 w-28" />
+            <Skeleton className="h-12 w-20" />
           </div>
         </div>
       </section>
