@@ -74,7 +74,7 @@ export const Footer = () => {
         <div className="border-border/50 mt-12 border-t pt-8">
           <p className="text-muted-foreground flex items-center justify-center gap-1 text-center text-sm">
             Built with <Heart className="h-4 w-4 fill-red-500 text-red-500" /> using Next.js &
-            TailwindCSS
+            TailwindCSS & Windsurf
           </p>
           <p className="text-muted-foreground mt-2 text-center text-sm">
             © {new Date().getFullYear()} {info.name}. All rights reserved.

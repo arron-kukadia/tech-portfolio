@@ -40,7 +40,7 @@ const ProjectPageCard = ({ project, index }: { project: Project; index: number }
         <p className="text-muted-foreground mb-4 flex-1 text-sm">{project.description}</p>
         <div className="mb-4 flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
-            <Badge key={tech} variant="outline" className="text-xs">
+            <Badge key={tech} variant="gradient">
               {tech}
             </Badge>
           ))}
