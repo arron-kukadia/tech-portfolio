@@ -91,6 +91,9 @@ export const GET_PERSONAL_INFO = `
       cv {
         url
       }
+      profileImage {
+        url
+      }
       skills
     }
   }

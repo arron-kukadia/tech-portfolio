@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { Download, MapPin, Mail, Briefcase, Calendar } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -59,9 +60,19 @@ export const AboutPageContent = () => {
               <CardContent className="p-8">
                 <div className="flex flex-col gap-8 md:flex-row">
                   <div className="flex-shrink-0">
-                    <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-500 text-4xl font-bold text-white">
-                      {info.name[0]}
-                    </div>
+                    {info.profileImage?.url ? (
+                      <Image
+                        src={info.profileImage.url}
+                        alt={info.name}
+                        width={128}
+                        height={128}
+                        className="h-32 w-32 rounded-2xl object-cover"
+                      />
+                    ) : (
+                      <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-500 text-4xl font-bold text-white">
+                        {info.name[0]}
+                      </div>
+                    )}
                   </div>
                   <div className="flex-1">
                     <h2 className="mb-2 text-2xl font-bold">{info.name}</h2>
