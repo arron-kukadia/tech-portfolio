@@ -75,7 +75,7 @@ export const Header = () => {
               transition={{ duration: 0.2 }}
               className="overflow-hidden md:hidden"
             >
-              <div className="space-y-2 py-4">
+              <div className="flex flex-col gap-2 py-4">
                 {navItems.map((item) => (
                   <NavLink
                     key={item.href}
@@ -83,6 +83,7 @@ export const Header = () => {
                     label={item.label}
                     isActive={pathname === item.href}
                     onClick={() => setMobileMenuOpen(false)}
+                    className="block w-full"
                   />
                 ))}
                 {info?.cv?.url && (

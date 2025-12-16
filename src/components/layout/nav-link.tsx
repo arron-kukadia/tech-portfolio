@@ -6,9 +6,10 @@ type NavLinkProps = {
   label: string
   isActive: boolean
   onClick?: () => void
+  className?: string
 }
 
-export const NavLink = ({ href, label, isActive, onClick }: NavLinkProps) => (
+export const NavLink = ({ href, label, isActive, onClick, className }: NavLinkProps) => (
   <Link
     href={href}
     onClick={onClick}
@@ -16,7 +17,8 @@ export const NavLink = ({ href, label, isActive, onClick }: NavLinkProps) => (
       'rounded-lg px-4 py-2 text-sm font-medium transition-colors',
       isActive
         ? 'text-foreground bg-accent'
-        : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
+        : 'text-muted-foreground hover:text-foreground hover:bg-accent/50',
+      className
     )}
   >
     {label}
