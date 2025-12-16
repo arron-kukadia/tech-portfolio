@@ -1,0 +1,130 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Github, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useProjects } from "@/hooks/use-projects";
+
+export function ProjectsPageContent() {
+  const { data: projects, isLoading } = useProjects();
+
+  return (
+    <div className="py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+            My{" "}
+            <span className="bg-gradient-to-r from-violet-500 to-indigo-500 bg-clip-text text-transparent">
+              Projects
+            </span>
+          </h1>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            A collection of projects I&apos;ve built, from side projects to
+            professional work. Each represents a unique challenge and learning
+            experience.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {isLoading
+            ? Array.from({ length: 6 }).map((_, i) => (
+                <Card key={i} className="overflow-hidden">
+                  <Skeleton className="h-48 rounded-none" />
+                  <CardContent className="p-6">
+                    <Skeleton className="h-6 w-3/4 mb-2" />
+                    <Skeleton className="h-4 w-full mb-4" />
+                    <Skeleton className="h-4 w-2/3" />
+                  </CardContent>
+                </Card>
+              ))
+            : projects?.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="overflow-hidden group h-full flex flex-col">
+                    <div className="relative h-48 overflow-hidden">
+                      {project.coverImage ? (
+                        <Image
+                          src={project.coverImage.url}
+                          alt={project.title}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="h-full bg-gradient-to-br from-violet-500/20 to-indigo-500/20 flex items-center justify-center">
+                          <span className="text-4xl font-bold text-muted-foreground/30">
+                            {project.title[0]}
+                          </span>
+                        </div>
+                      )}
+                      {project.featured && (
+                        <div className="absolute top-3 right-3">
+                          <Badge variant="gradient">Featured</Badge>
+                        </div>
+                      )}
+                    </div>
+                    <CardContent className="p-6 flex-1 flex flex-col">
+                      <h2 className="text-xl font-semibold mb-2 group-hover:text-violet-400 transition-colors">
+                        {project.title}
+                      </h2>
+                      <p className="text-muted-foreground text-sm mb-4 flex-1">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.technologies.map((tech) => (
+                          <Badge
+                            key={tech}
+                            variant="outline"
+                            className="text-xs"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                      <div className="flex gap-2">
+                        {project.githubUrl && (
+                          <Button variant="outline" size="sm" asChild>
+                            <a
+                              href={project.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Github className="h-4 w-4" />
+                              Code
+                            </a>
+                          </Button>
+                        )}
+                        {project.liveUrl && (
+                          <Button variant="gradient" size="sm" asChild>
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLink className="h-4 w-4" />
+                              Live Demo
+                            </a>
+                          </Button>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+        </div>
+      </div>
+    </div>
+  );
+}

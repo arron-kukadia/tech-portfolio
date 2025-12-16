@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Website
+
+A modern, responsive portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. Features a sleek dark theme, smooth animations, and CMS integration ready.
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Custom components with Radix UI primitives
+- **Animations**: Framer Motion
+- **State Management**: Zustand
+- **Data Fetching**: TanStack Query
+- **CMS**: Hygraph (optional)
+- **Icons**: Lucide React
+
+## Features
+
+- Responsive design optimized for all devices
+- Dark/Light theme toggle with persistence
+- Projects showcase with filtering
+- Blog with individual post pages
+- Experience timeline
+- Skills display
+- CV download button
+- Social media links (LinkedIn, GitHub, Instagram)
+- SEO optimized with meta tags
+- Smooth page transitions and animations
 
 ## Getting Started
 
-First, run the development server:
-
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Hygraph CMS Setup (Optional)
 
-## Learn More
+To use Hygraph for managing content:
 
-To learn more about Next.js, take a look at the following resources:
+1. Create a free account at [hygraph.com](https://hygraph.com)
+2. Create a new project
+3. Set up the following models:
+   - **Project**: title, slug, description, technologies, githubUrl, liveUrl, coverImage, featured
+   - **Post**: title, slug, excerpt, content, publishedAt, coverImage, tags
+   - **Experience**: company, role, description, startDate, endDate, current, technologies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Create a `.env.local` file:
+```
+NEXT_PUBLIC_HYGRAPH_ENDPOINT=your_hygraph_content_api_endpoint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Without the Hygraph endpoint, the site uses mock data automatically.
 
-## Deploy on Vercel
+## Customization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Update your personal info in `src/lib/mock-data.ts`:
+- Name and title
+- Bio and tagline
+- Social media links
+- Skills list
+- Email and location
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Replace `public/cv.pdf` with your actual CV.
+
+## Deployment
+
+Deploy easily on Vercel:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+
+Or build for production:
+```bash
+npm run build
+npm start
+```
+
+## Project Structure
+
+```
+src/
+├── app/                 # Next.js App Router pages
+├── components/
+│   ├── layout/         # Header, Footer
+│   ├── sections/       # Page sections (Hero, Skills, etc.)
+│   └── ui/             # Reusable UI components
+├── hooks/              # Custom React hooks
+├── lib/                # Utilities and data
+└── store/              # Zustand stores
+```
+
+## License
+
+MIT
