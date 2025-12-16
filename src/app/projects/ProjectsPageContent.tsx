@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { ProjectCard } from '@/components/cards/ProjectCard'
-import { ProjectSkeleton } from '@/components/cards/skeletons/ProjectSkeleton'
+import { CardSkeleton } from '@/components/cards/skeletons/CardSkeleton'
 import { useProjects } from '@/hooks/use-projects'
 import { fadeUp } from '@/lib/animations'
 
@@ -28,12 +28,12 @@ export const ProjectsPageContent = () => {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {isLoading ? (
             <>
-              <ProjectSkeleton />
-              <ProjectSkeleton />
-              <ProjectSkeleton />
-              <ProjectSkeleton />
-              <ProjectSkeleton />
-              <ProjectSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
             </>
           ) : (
             projects?.map((project, index) => (

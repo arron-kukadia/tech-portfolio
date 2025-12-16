@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { ProjectCard } from '@/components/cards/ProjectCard'
-import { ProjectSkeleton } from '@/components/cards/skeletons/ProjectSkeleton'
+import { CardSkeleton } from '@/components/cards/skeletons/CardSkeleton'
 import { useFeaturedProjects } from '@/hooks/use-projects'
 import { fadeInView } from '@/lib/animations'
 
@@ -26,9 +26,9 @@ export const FeaturedProjects = () => {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {isLoading ? (
             <>
-              <ProjectSkeleton />
-              <ProjectSkeleton />
-              <ProjectSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
             </>
           ) : (
             projects?.map((project, index) => (

@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { PostCard } from '@/components/cards/PostCard'
-import { PostSkeleton } from '@/components/cards/skeletons/PostSkeleton'
+import { CardSkeleton } from '@/components/cards/skeletons/CardSkeleton'
 import { useRecentBlogPosts } from '@/hooks/use-blog-posts'
 import { fadeInView } from '@/lib/animations'
 
@@ -25,9 +25,9 @@ export const RecentPosts = () => {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {isLoading ? (
             <>
-              <PostSkeleton />
-              <PostSkeleton />
-              <PostSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
             </>
           ) : (
             posts?.map((post, index) => <PostCard key={post.id} post={post} index={index} />)

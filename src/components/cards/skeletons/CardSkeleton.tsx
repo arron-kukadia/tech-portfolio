@@ -1,7 +1,7 @@
 import { Card, CardContent } from '@/components/ui/Card'
 import { Skeleton } from '@/components/ui/Skeleton'
 
-export const PostSkeleton = () => (
+export const CardSkeleton = () => (
   <Card className="overflow-hidden">
     <Skeleton className="h-48 rounded-none" />
     <CardContent className="p-6">
