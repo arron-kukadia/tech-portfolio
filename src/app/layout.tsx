@@ -34,9 +34,6 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     siteName: 'Arron Portfolio',
   },
-  twitter: {
-    card: 'summary_large_image',
-  },
   robots: {
     index: true,
     follow: true,
