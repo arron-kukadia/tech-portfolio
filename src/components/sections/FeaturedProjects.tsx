@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { ProjectCard } from '@/components/cards/ProjectCard'
 import { CardSkeleton } from '@/components/cards/skeletons/CardSkeleton'
-import { useFeaturedProjects } from '@/hooks/use-projects'
+import { useFeaturedProjects } from '@/hooks/useProjects'
 import { fadeInView } from '@/lib/animations'
 
 export const FeaturedProjects = () => {

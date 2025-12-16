@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { ProjectCard } from '@/components/cards/ProjectCard'
 import { CardSkeleton } from '@/components/cards/skeletons/CardSkeleton'
-import { useProjects } from '@/hooks/use-projects'
+import { useProjects } from '@/hooks/useProjects'
 import { fadeUp } from '@/lib/animations'
 
 export const ProjectsPageContent = () => {

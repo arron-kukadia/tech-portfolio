@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { PostCard } from '@/components/cards/PostCard'
 import { CardSkeleton } from '@/components/cards/skeletons/CardSkeleton'
-import { useRecentBlogPosts } from '@/hooks/use-blog-posts'
+import { useRecentBlogPosts } from '@/hooks/useBlogPosts'
 import { fadeInView } from '@/lib/animations'
 
 export const RecentPosts = () => {

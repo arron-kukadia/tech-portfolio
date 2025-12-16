@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 import { BlogPostSkeleton } from '@/components/cards/skeletons/BlogPostSkeleton'
 import { PostNotFound } from '@/components/cards/PostNotFound'
-import { useBlogPost } from '@/hooks/use-blog-posts'
+import { useBlogPost } from '@/hooks/useBlogPosts'
 import { fadeUp } from '@/lib/animations'
 import { formatDateLong } from '@/lib/utils'
 

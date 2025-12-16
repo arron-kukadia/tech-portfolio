@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { BlogListCard } from '@/components/cards/BlogListCard'
 import { BlogListSkeleton } from '@/components/cards/skeletons/BlogListSkeleton'
-import { useBlogPosts } from '@/hooks/use-blog-posts'
+import { useBlogPosts } from '@/hooks/useBlogPosts'
 import { fadeUp } from '@/lib/animations'
 
 export const BlogPageContent = () => {

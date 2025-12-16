@@ -5,7 +5,7 @@ import { ArrowRight, Download, Github, Linkedin, Instagram } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { Skeleton } from '@/components/ui/Skeleton'
-import { usePersonalInfo } from '@/hooks/use-personal-info'
+import { usePersonalInfo } from '@/hooks/usePersonalInfo'
 import { fadeUp } from '@/lib/animations'
 
 export const Hero = () => {

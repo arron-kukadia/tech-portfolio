@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Mail, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { usePersonalInfo } from '@/hooks/use-personal-info'
+import { usePersonalInfo } from '@/hooks/usePersonalInfo'
 import { fadeInView } from '@/lib/animations'
 
 export const CTA = () => {

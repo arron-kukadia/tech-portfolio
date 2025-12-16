@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Skeleton } from '@/components/ui/Skeleton'
 import { SkillBadge } from '@/components/cards/SkillBadge'
-import { usePersonalInfo } from '@/hooks/use-personal-info'
+import { usePersonalInfo } from '@/hooks/usePersonalInfo'
 import { fadeInView } from '@/lib/animations'
 
 export const Skills = () => {

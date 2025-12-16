@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { Github, Linkedin, Instagram, Mail, Heart } from 'lucide-react'
-import { usePersonalInfo } from '@/hooks/use-personal-info'
+import { usePersonalInfo } from '@/hooks/usePersonalInfo'
 
 const footerLinks = [
   { href: '/', label: 'Home' },

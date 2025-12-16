@@ -8,8 +8,8 @@ import { Card, CardContent } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { Separator } from '@/components/ui/Separator'
 import { Skeleton } from '@/components/ui/Skeleton'
-import { useExperience } from '@/hooks/use-experience'
-import { usePersonalInfo } from '@/hooks/use-personal-info'
+import { useExperience } from '@/hooks/useExperience'
+import { usePersonalInfo } from '@/hooks/usePersonalInfo'
 import { formatDateShort } from '@/lib/utils'
 
 export const AboutPageContent = () => {
