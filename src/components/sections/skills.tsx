@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Skeleton } from '@/components/ui/skeleton'
+import { Skeleton } from '@/components/ui/Skeleton'
 import { usePersonalInfo } from '@/hooks/use-personal-info'
 import { fadeInView, scaleInView } from '@/lib/animations'
 

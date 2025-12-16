@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Mail, ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button'
 import { usePersonalInfo } from '@/hooks/use-personal-info'
 import { fadeInView } from '@/lib/animations'
 

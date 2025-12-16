@@ -3,8 +3,9 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { PostCard, PostSkeleton } from '@/components/cards'
+import { Button } from '@/components/ui/Button'
+import { PostCard } from '@/components/cards/PostCard'
+import { PostSkeleton } from '@/components/cards/skeletons/PostSkeleton'
 import { useRecentBlogPosts } from '@/hooks/use-blog-posts'
 import { fadeInView } from '@/lib/animations'
 

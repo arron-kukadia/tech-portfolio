@@ -3,8 +3,9 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { ProjectCard, ProjectSkeleton } from '@/components/cards'
+import { Button } from '@/components/ui/Button'
+import { ProjectCard } from '@/components/cards/ProjectCard'
+import { ProjectSkeleton } from '@/components/cards/skeletons/ProjectSkeleton'
 import { useFeaturedProjects } from '@/hooks/use-projects'
 import { fadeInView } from '@/lib/animations'
 

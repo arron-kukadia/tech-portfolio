@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { BlogListCard, BlogListSkeleton } from '@/components/cards'
+import { BlogListCard } from '@/components/cards/BlogListCard'
+import { BlogListSkeleton } from '@/components/cards/skeletons/BlogListSkeleton'
 import { useBlogPosts } from '@/hooks/use-blog-posts'
 import { fadeUp } from '@/lib/animations'
 
