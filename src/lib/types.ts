@@ -42,6 +42,6 @@ export type PersonalInfo = {
   linkedin: string
   github: string
   instagram: string
-  cvUrl: string
+  cv?: { url: string }
   skills: string[]
 }

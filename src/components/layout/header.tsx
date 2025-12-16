@@ -9,7 +9,7 @@ import { NavLink } from '@/components/layout/nav-link'
 import { ThemeToggle } from '@/components/layout/theme-toggle'
 import { useThemeStore } from '@/store/theme-store'
 import { useNavigationStore } from '@/store/navigation-store'
-import { personalInfo } from '@/lib/config'
+import { usePersonalInfo } from '@/hooks/use-personal-info'
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -22,6 +22,7 @@ export const Header = () => {
   const pathname = usePathname()
   const { theme, toggleTheme } = useThemeStore()
   const { isMobileMenuOpen, toggleMobileMenu, setMobileMenuOpen } = useNavigationStore()
+  const { data: info } = usePersonalInfo()
 
   return (
     <header className="bg-background/80 border-border/50 fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-lg">
@@ -31,7 +32,7 @@ export const Header = () => {
             href="/"
             className="bg-gradient-to-r from-violet-500 to-indigo-500 bg-clip-text text-xl font-bold text-transparent"
           >
-            {personalInfo.name}
+            {info?.name || 'Portfolio'}
           </Link>
 
           <div className="hidden items-center gap-1 md:flex">
@@ -47,12 +48,14 @@ export const Header = () => {
 
           <div className="hidden items-center gap-2 md:flex">
             <ThemeToggle theme={theme} onToggle={toggleTheme} />
-            <Button variant="gradient" size="sm" asChild>
-              <a href={personalInfo.cvUrl} download>
-                <Download className="h-4 w-4" />
-                Download CV
-              </a>
-            </Button>
+            {info?.cv?.url && (
+              <Button variant="gradient" size="sm" asChild>
+                <a href={info.cv.url} download>
+                  <Download className="h-4 w-4" />
+                  Download CV
+                </a>
+              </Button>
+            )}
           </div>
 
           <div className="flex items-center gap-2 md:hidden">
@@ -82,14 +85,16 @@ export const Header = () => {
                     onClick={() => setMobileMenuOpen(false)}
                   />
                 ))}
-                <div className="pt-2">
-                  <Button variant="gradient" size="sm" className="w-full" asChild>
-                    <a href={personalInfo.cvUrl} download>
-                      <Download className="h-4 w-4" />
-                      Download CV
-                    </a>
-                  </Button>
-                </div>
+                {info?.cv?.url && (
+                  <div className="pt-2">
+                    <Button variant="gradient" size="sm" className="w-full" asChild>
+                      <a href={info.cv.url} download>
+                        <Download className="h-4 w-4" />
+                        Download CV
+                      </a>
+                    </Button>
+                  </div>
+                )}
               </div>
             </motion.div>
           )}

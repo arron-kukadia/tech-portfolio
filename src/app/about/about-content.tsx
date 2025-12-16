@@ -8,11 +8,27 @@ import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useExperience } from '@/hooks/use-experience'
-import { personalInfo } from '@/lib/config'
+import { usePersonalInfo } from '@/hooks/use-personal-info'
 import { formatDateShort } from '@/lib/utils'
 
 export const AboutPageContent = () => {
-  const { data: experience, isLoading } = useExperience()
+  const { data: experience, isLoading: expLoading } = useExperience()
+  const { data: info, isLoading: infoLoading } = usePersonalInfo()
+
+  if (infoLoading) {
+    return (
+      <div className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-4xl space-y-8">
+            <Skeleton className="mx-auto h-16 w-64" />
+            <Skeleton className="h-64 w-full" />
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (!info) return null
 
   return (
     <div className="py-20">
@@ -30,9 +46,7 @@ export const AboutPageContent = () => {
                 Me
               </span>
             </h1>
-            <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
-              {personalInfo.tagline}
-            </p>
+            <p className="text-muted-foreground mx-auto max-w-2xl text-lg">{info.tagline}</p>
           </motion.div>
 
           <motion.div
@@ -46,43 +60,51 @@ export const AboutPageContent = () => {
                 <div className="flex flex-col gap-8 md:flex-row">
                   <div className="flex-shrink-0">
                     <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-500 text-4xl font-bold text-white">
-                      {personalInfo.name[0]}
+                      {info.name[0]}
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h2 className="mb-2 text-2xl font-bold">{personalInfo.name}</h2>
-                    <p className="mb-4 font-medium text-violet-400">{personalInfo.title}</p>
-                    <p className="text-muted-foreground mb-4">{personalInfo.bio}</p>
+                    <h2 className="mb-2 text-2xl font-bold">{info.name}</h2>
+                    <p className="mb-4 font-medium text-violet-400">{info.title}</p>
+                    <p className="text-muted-foreground mb-4">{info.bio}</p>
                     <div className="text-muted-foreground flex flex-wrap gap-4 text-sm">
-                      <span className="flex items-center gap-2">
-                        <MapPin className="h-4 w-4" />
-                        {personalInfo.location}
-                      </span>
+                      {info.location && (
+                        <span className="flex items-center gap-2">
+                          <MapPin className="h-4 w-4" />
+                          {info.location}
+                        </span>
+                      )}
                       <span className="flex items-center gap-2">
                         <Mail className="h-4 w-4" />
-                        {personalInfo.email}
+                        {info.email}
                       </span>
                     </div>
                   </div>
                 </div>
                 <Separator className="my-6" />
                 <div className="flex flex-wrap gap-3">
-                  <Button variant="gradient" asChild>
-                    <a href={personalInfo.cvUrl} download>
-                      <Download className="h-4 w-4" />
-                      Download CV
-                    </a>
-                  </Button>
-                  <Button variant="outline" asChild>
-                    <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">
-                      LinkedIn
-                    </a>
-                  </Button>
-                  <Button variant="outline" asChild>
-                    <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
-                      GitHub
-                    </a>
-                  </Button>
+                  {info.cv?.url && (
+                    <Button variant="gradient" asChild>
+                      <a href={info.cv.url} download>
+                        <Download className="h-4 w-4" />
+                        Download CV
+                      </a>
+                    </Button>
+                  )}
+                  {info.linkedin && (
+                    <Button variant="outline" asChild>
+                      <a href={info.linkedin} target="_blank" rel="noopener noreferrer">
+                        LinkedIn
+                      </a>
+                    </Button>
+                  )}
+                  {info.github && (
+                    <Button variant="outline" asChild>
+                      <a href={info.github} target="_blank" rel="noopener noreferrer">
+                        GitHub
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -99,7 +121,7 @@ export const AboutPageContent = () => {
               Experience
             </h2>
             <div className="space-y-6">
-              {isLoading
+              {expLoading
                 ? Array.from({ length: 3 }).map((_, i) => (
                     <Card key={i}>
                       <CardContent className="p-6">
@@ -155,7 +177,7 @@ export const AboutPageContent = () => {
             <Card>
               <CardContent className="p-6">
                 <div className="flex flex-wrap gap-3">
-                  {personalInfo.skills.map((skill, index) => (
+                  {info.skills?.map((skill: string, index: number) => (
                     <motion.div
                       key={skill}
                       initial={{ opacity: 0, scale: 0.8 }}

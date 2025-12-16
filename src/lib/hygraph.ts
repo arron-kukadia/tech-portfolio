@@ -73,3 +73,23 @@ export const GET_EXPERIENCE = `
     }
   }
 `
+
+export const GET_PERSONAL_INFO = `
+  query GetPersonalInfo {
+    personalInfos(first: 1) {
+      name
+      title
+      tagline
+      bio
+      location
+      email
+      linkedin
+      github
+      instagram
+      cv {
+        url
+      }
+      skills
+    }
+  }
+`
