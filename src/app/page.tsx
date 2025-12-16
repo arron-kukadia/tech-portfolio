@@ -1,8 +1,8 @@
-import { Hero } from '@/components/sections/hero'
-import { FeaturedProjects } from '@/components/sections/featured-projects'
-import { Skills } from '@/components/sections/skills'
-import { RecentPosts } from '@/components/sections/recent-posts'
-import { CTA } from '@/components/sections/cta'
+import { Hero } from '@/components/sections/Hero'
+import { FeaturedProjects } from '@/components/sections/FeaturedProjects'
+import { Skills } from '@/components/sections/Skills'
+import { RecentPosts } from '@/components/sections/RecentPosts'
+import { CTA } from '@/components/sections/CTA'
 
 const Home = () => (
   <>

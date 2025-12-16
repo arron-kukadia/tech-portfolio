@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { BlogPageContent } from './blog-content'
+import { BlogPageContent } from './BlogPageContent'
 
 export const metadata: Metadata = {
   title: 'Blog',

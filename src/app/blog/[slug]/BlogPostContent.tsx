@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Calendar, ArrowLeft, Tag } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Skeleton } from '@/components/ui/skeleton'
+import { BlogPostSkeleton, PostNotFound } from '@/components/cards'
 import { useBlogPost } from '@/hooks/use-blog-posts'
 import { fadeUp } from '@/lib/animations'
 import { formatDateLong } from '@/lib/utils'
@@ -18,45 +18,8 @@ type BlogPostContentProps = {
 export const BlogPostContent = ({ slug }: BlogPostContentProps) => {
   const { data: post, isLoading } = useBlogPost(slug)
 
-  if (isLoading) {
-    return (
-      <div className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <Skeleton className="mb-4 h-10 w-3/4" />
-            <Skeleton className="mb-8 h-6 w-1/4" />
-            <Skeleton className="mb-8 h-64 w-full rounded-xl" />
-            <div className="space-y-4">
-              <Skeleton className="h-4 w-full" />
-              <Skeleton className="h-4 w-full" />
-              <Skeleton className="h-4 w-3/4" />
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  if (!post) {
-    return (
-      <div className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold">Post Not Found</h1>
-            <p className="text-muted-foreground mb-8">
-              The blog post you&apos;re looking for doesn&apos;t exist.
-            </p>
-            <Button variant="gradient" asChild>
-              <Link href="/blog">
-                <ArrowLeft className="h-4 w-4" />
-                Back to Blog
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  if (isLoading) return <BlogPostSkeleton />
+  if (!post) return <PostNotFound />
 
   return (
     <div className="py-20">

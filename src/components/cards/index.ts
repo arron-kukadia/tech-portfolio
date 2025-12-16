@@ -1,4 +1,10 @@
-export { ProjectCard } from './project-card'
-export { PostCard } from './post-card'
-export { BlogListCard } from './blog-list-card'
-export { ProjectSkeleton, PostSkeleton, BlogListSkeleton } from './skeleton-card'
+export { ProjectCard } from './ProjectCard'
+export { PostCard } from './PostCard'
+export { BlogListCard } from './BlogListCard'
+export { PostNotFound } from './PostNotFound'
+export {
+  ProjectSkeleton,
+  PostSkeleton,
+  BlogListSkeleton,
+  BlogPostSkeleton,
+} from './skeletons'

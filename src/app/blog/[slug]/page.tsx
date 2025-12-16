@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { hygraphClient, GET_BLOG_POST } from '@/lib/hygraph'
 import { BlogPost } from '@/lib/types'
-import { BlogPostContent } from './blog-post-content'
+import { BlogPostContent } from './BlogPostContent'
 
 type Props = {
   params: Promise<{ slug: string }>

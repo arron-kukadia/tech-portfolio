@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ProjectsPageContent } from './projects-content'
+import { ProjectsPageContent } from './ProjectsPageContent'
 
 export const metadata: Metadata = {
   title: 'Projects',
