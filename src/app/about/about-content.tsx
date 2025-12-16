@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useExperience } from '@/hooks/use-experience'
-import { personalInfo } from '@/lib/mock-data'
+import { personalInfo } from '@/lib/config'
 import { formatDateShort } from '@/lib/utils'
 
 export const AboutPageContent = () => {

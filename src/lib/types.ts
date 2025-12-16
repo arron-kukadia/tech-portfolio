@@ -16,7 +16,7 @@ export type BlogPost = {
   slug: string
   excerpt: string
   content?: { html: string }
-  publishedAt: string
+  publishedAtTime: string
   coverImage?: { url: string }
   tags: string[]
 }

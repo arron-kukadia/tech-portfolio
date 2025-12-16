@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { personalInfo } from '@/lib/mock-data'
+import { personalInfo } from '@/lib/config'
 import { fadeInView, scaleInView } from '@/lib/animations'
 
 const SkillBadge = ({ skill, index }: { skill: string; index: number }) => (

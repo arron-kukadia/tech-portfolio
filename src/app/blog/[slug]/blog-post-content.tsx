@@ -72,7 +72,7 @@ export const BlogPostContent = ({ slug }: BlogPostContentProps) => {
           <div className="text-muted-foreground mb-4 flex items-center gap-4 text-sm">
             <span className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
-              {formatDateLong(post.publishedAt)}
+              {formatDateLong(post.publishedAtTime)}
             </span>
           </div>
 

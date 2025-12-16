@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Mail, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { personalInfo } from '@/lib/mock-data'
+import { personalInfo } from '@/lib/config'
 import { fadeInView } from '@/lib/animations'
 
 export const CTA = () => (

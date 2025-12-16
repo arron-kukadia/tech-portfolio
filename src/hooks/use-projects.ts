@@ -2,13 +2,10 @@
 
 import { useQuery } from '@tanstack/react-query'
 import { hygraphClient, GET_PROJECTS } from '@/lib/hygraph'
-import { mockProjects, Project } from '@/lib/mock-data'
+import { Project } from '@/lib/types'
 import { FIVE_MINUTES } from '@/lib/constants'
 
-const USE_MOCK_DATA = !process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT
-
 const fetchProjects = async (): Promise<Project[]> => {
-  if (USE_MOCK_DATA) return mockProjects
   const data = await hygraphClient.request<{ projects: Project[] }>(GET_PROJECTS)
   return data.projects
 }

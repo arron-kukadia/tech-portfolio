@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Github, Linkedin, Instagram, Mail, Heart } from 'lucide-react'
-import { personalInfo } from '@/lib/mock-data'
+import { personalInfo } from '@/lib/config'
 
 const socialLinks = [
   { href: personalInfo.github, icon: Github, label: 'GitHub' },

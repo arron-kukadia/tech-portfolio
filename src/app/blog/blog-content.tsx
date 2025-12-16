@@ -48,7 +48,7 @@ const BlogListCard = ({ post, index }: { post: BlogPost; index: number }) => (
             <div>
               <div className="text-muted-foreground mb-3 flex items-center gap-2 text-sm">
                 <Calendar className="h-4 w-4" />
-                {formatDateLong(post.publishedAt)}
+                {formatDateLong(post.publishedAtTime)}
               </div>
               <h2 className="mb-2 text-xl font-semibold transition-colors group-hover:text-violet-400">
                 {post.title}

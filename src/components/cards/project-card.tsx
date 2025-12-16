@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { fadeInView } from '@/lib/animations'
-import { Project } from '@/lib/mock-data'
+import { Project } from '@/lib/types'
 
 type ProjectCardProps = {
   project: Project

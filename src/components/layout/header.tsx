@@ -9,7 +9,7 @@ import { NavLink } from '@/components/layout/nav-link'
 import { ThemeToggle } from '@/components/layout/theme-toggle'
 import { useThemeStore } from '@/store/theme-store'
 import { useNavigationStore } from '@/store/navigation-store'
-import { personalInfo } from '@/lib/mock-data'
+import { personalInfo } from '@/lib/config'
 
 const navItems = [
   { href: '/', label: 'Home' },

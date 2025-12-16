@@ -1,8 +1,11 @@
 import { GraphQLClient } from 'graphql-request'
 
 const hygraphEndpoint = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT || ''
+const hygraphToken = process.env.NEXT_PUBLIC_HYGRAPH_TOKEN || ''
 
-export const hygraphClient = new GraphQLClient(hygraphEndpoint)
+export const hygraphClient = new GraphQLClient(hygraphEndpoint, {
+  headers: hygraphToken ? { Authorization: `Bearer ${hygraphToken}` } : {},
+})
 
 export const GET_PROJECTS = `
   query GetProjects {
@@ -24,12 +27,12 @@ export const GET_PROJECTS = `
 
 export const GET_BLOG_POSTS = `
   query GetBlogPosts {
-    posts(orderBy: publishedAt_DESC) {
+    posts(orderBy: publishedAtTime_DESC) {
       id
       title
       slug
       excerpt
-      publishedAt
+      publishedAtTime
       coverImage {
         url
       }
@@ -47,7 +50,7 @@ export const GET_BLOG_POST = `
       content {
         html
       }
-      publishedAt
+      publishedAtTime
       coverImage {
         url
       }

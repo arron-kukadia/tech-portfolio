@@ -7,7 +7,7 @@ import { Calendar } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { fadeInView } from '@/lib/animations'
-import { BlogPost } from '@/lib/mock-data'
+import { BlogPost } from '@/lib/types'
 
 type PostCardProps = {
   post: BlogPost
@@ -42,7 +42,7 @@ export const PostCard = ({ post, index = 0 }: PostCardProps) => (
         <CardContent className="flex flex-1 flex-col p-6">
           <div className="text-muted-foreground mb-3 flex items-center gap-2 text-sm">
             <Calendar className="h-4 w-4" />
-            {formatDate(post.publishedAt)}
+            {formatDate(post.publishedAtTime)}
           </div>
           <h3 className="mb-2 line-clamp-2 text-xl font-semibold transition-colors group-hover:text-violet-400">
             {post.title}

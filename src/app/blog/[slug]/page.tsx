@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { mockBlogPosts } from '@/lib/mock-data'
+import { hygraphClient, GET_BLOG_POST } from '@/lib/hygraph'
+import { BlogPost } from '@/lib/types'
 import { BlogPostContent } from './blog-post-content'
 
 type Props = {
@@ -8,15 +9,15 @@ type Props = {
 
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const { slug } = await params
-  const post = mockBlogPosts.find((p) => p.slug === slug)
+  const data = await hygraphClient.request<{ post: BlogPost | null }>(GET_BLOG_POST, { slug })
 
-  if (!post) {
+  if (!data.post) {
     return { title: 'Post Not Found' }
   }
 
   return {
-    title: post.title,
-    description: post.excerpt,
+    title: data.post.title,
+    description: data.post.excerpt,
   }
 }
 

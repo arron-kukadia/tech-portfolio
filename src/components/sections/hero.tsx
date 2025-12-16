@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Download, Github, Linkedin, Instagram } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { personalInfo } from '@/lib/mock-data'
+import { personalInfo } from '@/lib/config'
 import { fadeUp } from '@/lib/animations'
 
 const socialLinks = [
