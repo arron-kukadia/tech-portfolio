@@ -23,6 +23,7 @@ export const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => (
             src={project.coverImage.url}
             alt={project.title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
         ) : (

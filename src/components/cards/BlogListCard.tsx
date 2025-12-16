@@ -26,6 +26,7 @@ export const BlogListCard = ({ post, index }: BlogListCardProps) => (
                 src={post.coverImage.url}
                 alt={post.title}
                 fill
+                sizes="(max-width: 768px) 100vw, 256px"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             ) : (

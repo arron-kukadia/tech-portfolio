@@ -57,8 +57,9 @@ export const BlogPostContent = ({ slug }: BlogPostContentProps) => {
                 src={post.coverImage.url}
                 alt={post.title}
                 fill
-                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 1024px"
                 priority
+                className="object-cover"
               />
             </div>
           )}

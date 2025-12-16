@@ -66,6 +66,8 @@ export const AboutPageContent = () => {
                         alt={info.name}
                         width={128}
                         height={128}
+                        sizes="128px"
+                        quality={85}
                         className="h-32 w-32 rounded-2xl object-cover"
                       />
                     ) : (
