@@ -3,6 +3,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { hygraphClient, GET_BLOG_POSTS, GET_BLOG_POST } from '@/lib/hygraph'
 import { mockBlogPosts, BlogPost } from '@/lib/mock-data'
+import { FIVE_MINUTES } from '@/lib/constants'
 
 const USE_MOCK_DATA = !process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT
 
@@ -19,14 +20,14 @@ const fetchBlogPost = async (slug: string): Promise<BlogPost | null> => {
 }
 
 export const useBlogPosts = () =>
-  useQuery({ queryKey: ['blog-posts'], queryFn: fetchBlogPosts, staleTime: 1000 * 60 * 5 })
+  useQuery({ queryKey: ['blog-posts'], queryFn: fetchBlogPosts, staleTime: FIVE_MINUTES })
 
 export const useBlogPost = (slug: string) =>
-  useQuery({ queryKey: ['blog-post', slug], queryFn: () => fetchBlogPost(slug), staleTime: 1000 * 60 * 5 })
+  useQuery({ queryKey: ['blog-post', slug], queryFn: () => fetchBlogPost(slug), staleTime: FIVE_MINUTES })
 
 export const useRecentBlogPosts = (limit = 3) =>
   useQuery({
     queryKey: ['blog-posts', 'recent', limit],
     queryFn: async () => (await fetchBlogPosts()).slice(0, limit),
-    staleTime: 1000 * 60 * 5,
+    staleTime: FIVE_MINUTES,
   })

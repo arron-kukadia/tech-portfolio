@@ -3,6 +3,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { hygraphClient, GET_EXPERIENCE } from '@/lib/hygraph'
 import { mockExperience, Experience } from '@/lib/mock-data'
+import { FIVE_MINUTES } from '@/lib/constants'
 
 const USE_MOCK_DATA = !process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT
 
@@ -13,4 +14,4 @@ const fetchExperience = async (): Promise<Experience[]> => {
 }
 
 export const useExperience = () =>
-  useQuery({ queryKey: ['experience'], queryFn: fetchExperience, staleTime: 1000 * 60 * 5 })
+  useQuery({ queryKey: ['experience'], queryFn: fetchExperience, staleTime: FIVE_MINUTES })

@@ -3,6 +3,7 @@
 import { ReactNode, useState, useEffect, useSyncExternalStore } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useThemeStore } from '@/store/theme-store'
+import { ONE_MINUTE } from '@/lib/constants'
 
 const useHasMounted = () => useSyncExternalStore(() => () => {}, () => true, () => false)
 
@@ -23,7 +24,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
 export const Providers = ({ children }: { children: ReactNode }) => {
   const [queryClient] = useState(() => new QueryClient({
     defaultOptions: {
-      queries: { staleTime: 60 * 1000, refetchOnWindowFocus: false },
+      queries: { staleTime: ONE_MINUTE, refetchOnWindowFocus: false },
     },
   }))
 

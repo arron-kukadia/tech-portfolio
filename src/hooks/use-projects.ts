@@ -3,6 +3,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { hygraphClient, GET_PROJECTS } from '@/lib/hygraph'
 import { mockProjects, Project } from '@/lib/mock-data'
+import { FIVE_MINUTES } from '@/lib/constants'
 
 const USE_MOCK_DATA = !process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT
 
@@ -13,11 +14,11 @@ const fetchProjects = async (): Promise<Project[]> => {
 }
 
 export const useProjects = () =>
-  useQuery({ queryKey: ['projects'], queryFn: fetchProjects, staleTime: 1000 * 60 * 5 })
+  useQuery({ queryKey: ['projects'], queryFn: fetchProjects, staleTime: FIVE_MINUTES })
 
 export const useFeaturedProjects = () =>
   useQuery({
     queryKey: ['projects', 'featured'],
     queryFn: async () => (await fetchProjects()).filter((p) => p.featured),
-    staleTime: 1000 * 60 * 5,
+    staleTime: FIVE_MINUTES,
   })
