@@ -8,18 +8,12 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { fadeInView } from '@/lib/animations'
 import { BlogPost } from '@/lib/types'
+import { formatDate } from '@/lib/utils'
 
 type PostCardProps = {
   post: BlogPost
   index?: number
 }
-
-const formatDate = (dateString: string) =>
-  new Date(dateString).toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  })
 
 export const PostCard = ({ post, index = 0 }: PostCardProps) => (
   <motion.div {...fadeInView(index * 0.1)}>
