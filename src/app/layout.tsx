@@ -17,13 +17,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Arron | Full Stack Developer',
+    default: 'Arron | Senior Frontend Software Engineer',
     template: '%s | Arron',
   },
-  description:
-    'Full Stack Developer specializing in building modern, scalable web applications. View my portfolio, projects, and blog posts.',
-  keywords: [
-    'Full Stack Developer',
+  description: 'I\'m a Senior Frontend Software Engineer with 5+ years building high-impact web and mobile apps in React and React Native with TypeScript. Proven track record leading feature delivery, driving architectural improvements, and mentoring engineers. Strong focus on performance, UI/UX, developer experience, and product-first engineering.',  keywords: [
+    'Senior Frontend Software Engineer',
     'Web Developer',
     'React',
     'Next.js',
