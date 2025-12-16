@@ -1,24 +1,18 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
-import { Download, MapPin, Mail, Briefcase, Calendar } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { Skeleton } from "@/components/ui/skeleton";
-import { useExperience } from "@/hooks/use-experience";
-import { personalInfo } from "@/lib/mock-data";
+import { motion } from 'framer-motion'
+import { Download, MapPin, Mail, Briefcase, Calendar } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Separator } from '@/components/ui/separator'
+import { Skeleton } from '@/components/ui/skeleton'
+import { useExperience } from '@/hooks/use-experience'
+import { personalInfo } from '@/lib/mock-data'
+import { formatDateShort } from '@/lib/utils'
 
-function formatDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString("en-GB", {
-    month: "short",
-    year: "numeric",
-  });
-}
-
-export function AboutPageContent() {
-  const { data: experience, isLoading } = useExperience();
+export const AboutPageContent = () => {
+  const { data: experience, isLoading } = useExperience()
 
   return (
     <div className="py-20">
@@ -151,10 +145,8 @@ export function AboutPageContent() {
                             </div>
                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
                               <Calendar className="h-4 w-4" />
-                              {formatDate(exp.startDate)} -{" "}
-                              {exp.current
-                                ? "Present"
-                                : formatDate(exp.endDate!)}
+                              {formatDateShort(exp.startDate)} -{' '}
+                              {exp.current ? 'Present' : formatDateShort(exp.endDate!)}
                             </div>
                           </div>
                           <p className="text-muted-foreground mb-4">

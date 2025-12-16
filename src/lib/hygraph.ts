@@ -1,8 +1,8 @@
-import { GraphQLClient } from "graphql-request";
+import { GraphQLClient } from 'graphql-request'
 
-const hygraphEndpoint = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT || "";
+const hygraphEndpoint = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT || ''
 
-export const hygraphClient = new GraphQLClient(hygraphEndpoint);
+export const hygraphClient = new GraphQLClient(hygraphEndpoint)
 
 export const GET_PROJECTS = `
   query GetProjects {
