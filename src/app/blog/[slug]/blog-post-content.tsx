@@ -22,10 +22,10 @@ export const BlogPostContent = ({ slug }: BlogPostContentProps) => {
     return (
       <div className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <Skeleton className="h-10 w-3/4 mb-4" />
-            <Skeleton className="h-6 w-1/4 mb-8" />
-            <Skeleton className="h-64 w-full mb-8 rounded-xl" />
+          <div className="mx-auto max-w-3xl">
+            <Skeleton className="mb-4 h-10 w-3/4" />
+            <Skeleton className="mb-8 h-6 w-1/4" />
+            <Skeleton className="mb-8 h-64 w-full rounded-xl" />
             <div className="space-y-4">
               <Skeleton className="h-4 w-full" />
               <Skeleton className="h-4 w-full" />
@@ -41,8 +41,8 @@ export const BlogPostContent = ({ slug }: BlogPostContentProps) => {
     return (
       <div className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="mb-4 text-4xl font-bold">Post Not Found</h1>
             <p className="text-muted-foreground mb-8">
               The blog post you&apos;re looking for doesn&apos;t exist.
             </p>
@@ -61,7 +61,7 @@ export const BlogPostContent = ({ slug }: BlogPostContentProps) => {
   return (
     <div className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div {...fadeUp()} className="max-w-3xl mx-auto">
+        <motion.div {...fadeUp()} className="mx-auto max-w-3xl">
           <Button variant="ghost" asChild className="mb-8">
             <Link href="/blog">
               <ArrowLeft className="h-4 w-4" />
@@ -69,16 +69,16 @@ export const BlogPostContent = ({ slug }: BlogPostContentProps) => {
             </Link>
           </Button>
 
-          <div className="flex items-center gap-4 text-muted-foreground text-sm mb-4">
+          <div className="text-muted-foreground mb-4 flex items-center gap-4 text-sm">
             <span className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
               {formatDateLong(post.publishedAt)}
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">{post.title}</h1>
+          <h1 className="mb-6 text-3xl font-bold sm:text-4xl lg:text-5xl">{post.title}</h1>
 
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="mb-8 flex flex-wrap gap-2">
             {post.tags.map((tag) => (
               <Badge key={tag} variant="gradient" className="flex items-center gap-1">
                 <Tag className="h-3 w-3" />
@@ -88,8 +88,14 @@ export const BlogPostContent = ({ slug }: BlogPostContentProps) => {
           </div>
 
           {post.coverImage && (
-            <div className="relative h-64 sm:h-80 lg:h-96 rounded-xl overflow-hidden mb-8">
-              <Image src={post.coverImage.url} alt={post.title} fill className="object-cover" priority />
+            <div className="relative mb-8 h-64 overflow-hidden rounded-xl sm:h-80 lg:h-96">
+              <Image
+                src={post.coverImage.url}
+                alt={post.title}
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           )}
 
@@ -98,10 +104,11 @@ export const BlogPostContent = ({ slug }: BlogPostContentProps) => {
               <div dangerouslySetInnerHTML={{ __html: post.content.html }} />
             ) : (
               <div className="space-y-4">
-                <p className="text-lg text-muted-foreground">{post.excerpt}</p>
+                <p className="text-muted-foreground text-lg">{post.excerpt}</p>
                 <p className="text-muted-foreground">
-                  This is a placeholder for the full blog post content. When connected to Hygraph CMS,
-                  the rich text content will be displayed here with proper formatting, code blocks, images, and more.
+                  This is a placeholder for the full blog post content. When connected to Hygraph
+                  CMS, the rich text content will be displayed here with proper formatting, code
+                  blocks, images, and more.
                 </p>
                 <p className="text-muted-foreground">
                   The content would typically include sections covering the main topic in depth,

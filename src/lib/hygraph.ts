@@ -20,7 +20,7 @@ export const GET_PROJECTS = `
       featured
     }
   }
-`;
+`
 
 export const GET_BLOG_POSTS = `
   query GetBlogPosts {
@@ -36,7 +36,7 @@ export const GET_BLOG_POSTS = `
       tags
     }
   }
-`;
+`
 
 export const GET_BLOG_POST = `
   query GetBlogPost($slug: String!) {
@@ -54,7 +54,7 @@ export const GET_BLOG_POST = `
       tags
     }
   }
-`;
+`
 
 export const GET_EXPERIENCE = `
   query GetExperience {
@@ -69,4 +69,4 @@ export const GET_EXPERIENCE = `
       technologies
     }
   }
-`;
+`

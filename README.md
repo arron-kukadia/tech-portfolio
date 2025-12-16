@@ -30,11 +30,13 @@ A modern, responsive portfolio website built with Next.js 14, TypeScript, and Ta
 ## Getting Started
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
 2. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -53,6 +55,7 @@ To use Hygraph for managing content:
    - **Experience**: company, role, description, startDate, endDate, current, technologies
 
 4. Create a `.env.local` file:
+
 ```
 NEXT_PUBLIC_HYGRAPH_ENDPOINT=your_hygraph_content_api_endpoint
 ```
@@ -62,6 +65,7 @@ Without the Hygraph endpoint, the site uses mock data automatically.
 ## Customization
 
 Update your personal info in `src/lib/mock-data.ts`:
+
 - Name and title
 - Bio and tagline
 - Social media links
@@ -77,6 +81,7 @@ Deploy easily on Vercel:
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 
 Or build for production:
+
 ```bash
 npm run build
 npm start

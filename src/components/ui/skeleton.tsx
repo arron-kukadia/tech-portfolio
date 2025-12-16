@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 type SkeletonProps = HTMLAttributes<HTMLDivElement>
 
 const Skeleton = ({ className, ...props }: SkeletonProps) => (
-  <div className={cn('animate-pulse rounded-md bg-muted', className)} {...props} />
+  <div className={cn('bg-muted animate-pulse rounded-md', className)} {...props} />
 )
 
-export { Skeleton };
+export { Skeleton }

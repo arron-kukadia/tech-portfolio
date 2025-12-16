@@ -17,20 +17,20 @@ export const AboutPageContent = () => {
   return (
     <div className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-12"
+            className="mb-12 text-center"
           >
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-              About{" "}
+            <h1 className="mb-4 text-4xl font-bold sm:text-5xl">
+              About{' '}
               <span className="bg-gradient-to-r from-violet-500 to-indigo-500 bg-clip-text text-transparent">
                 Me
               </span>
             </h1>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
               {personalInfo.tagline}
             </p>
           </motion.div>
@@ -43,23 +43,17 @@ export const AboutPageContent = () => {
           >
             <Card>
               <CardContent className="p-8">
-                <div className="flex flex-col md:flex-row gap-8">
+                <div className="flex flex-col gap-8 md:flex-row">
                   <div className="flex-shrink-0">
-                    <div className="h-32 w-32 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-500 flex items-center justify-center text-4xl font-bold text-white">
+                    <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-500 text-4xl font-bold text-white">
                       {personalInfo.name[0]}
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h2 className="text-2xl font-bold mb-2">
-                      {personalInfo.name}
-                    </h2>
-                    <p className="text-violet-400 font-medium mb-4">
-                      {personalInfo.title}
-                    </p>
-                    <p className="text-muted-foreground mb-4">
-                      {personalInfo.bio}
-                    </p>
-                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                    <h2 className="mb-2 text-2xl font-bold">{personalInfo.name}</h2>
+                    <p className="mb-4 font-medium text-violet-400">{personalInfo.title}</p>
+                    <p className="text-muted-foreground mb-4">{personalInfo.bio}</p>
+                    <div className="text-muted-foreground flex flex-wrap gap-4 text-sm">
                       <span className="flex items-center gap-2">
                         <MapPin className="h-4 w-4" />
                         {personalInfo.location}
@@ -80,20 +74,12 @@ export const AboutPageContent = () => {
                     </a>
                   </Button>
                   <Button variant="outline" asChild>
-                    <a
-                      href={personalInfo.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">
                       LinkedIn
                     </a>
                   </Button>
                   <Button variant="outline" asChild>
-                    <a
-                      href={personalInfo.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
                       GitHub
                     </a>
                   </Button>
@@ -108,7 +94,7 @@ export const AboutPageContent = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-12"
           >
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+            <h2 className="mb-6 flex items-center gap-2 text-2xl font-bold">
               <Briefcase className="h-6 w-6 text-violet-400" />
               Experience
             </h2>
@@ -117,9 +103,9 @@ export const AboutPageContent = () => {
                 ? Array.from({ length: 3 }).map((_, i) => (
                     <Card key={i}>
                       <CardContent className="p-6">
-                        <Skeleton className="h-6 w-1/2 mb-2" />
-                        <Skeleton className="h-4 w-1/3 mb-4" />
-                        <Skeleton className="h-4 w-full mb-2" />
+                        <Skeleton className="mb-2 h-6 w-1/2" />
+                        <Skeleton className="mb-4 h-4 w-1/3" />
+                        <Skeleton className="mb-2 h-4 w-full" />
                         <Skeleton className="h-4 w-3/4" />
                       </CardContent>
                     </Card>
@@ -132,26 +118,20 @@ export const AboutPageContent = () => {
                       transition={{ duration: 0.4, delay: index * 0.1 }}
                     >
                       <Card className="relative overflow-hidden">
-                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-violet-500 to-indigo-500" />
+                        <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-violet-500 to-indigo-500" />
                         <CardContent className="p-6 pl-8">
-                          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
+                          <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                             <div>
-                              <h3 className="text-xl font-semibold">
-                                {exp.role}
-                              </h3>
-                              <p className="text-violet-400 font-medium">
-                                {exp.company}
-                              </p>
+                              <h3 className="text-xl font-semibold">{exp.role}</h3>
+                              <p className="font-medium text-violet-400">{exp.company}</p>
                             </div>
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <div className="text-muted-foreground flex items-center gap-2 text-sm">
                               <Calendar className="h-4 w-4" />
                               {formatDateShort(exp.startDate)} -{' '}
                               {exp.current ? 'Present' : formatDateShort(exp.endDate!)}
                             </div>
                           </div>
-                          <p className="text-muted-foreground mb-4">
-                            {exp.description}
-                          </p>
+                          <p className="text-muted-foreground mb-4">{exp.description}</p>
                           <div className="flex flex-wrap gap-2">
                             {exp.technologies.map((tech) => (
                               <Badge key={tech} variant="gradient">
@@ -171,7 +151,7 @@ export const AboutPageContent = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h2 className="text-2xl font-bold mb-6">Skills & Technologies</h2>
+            <h2 className="mb-6 text-2xl font-bold">Skills & Technologies</h2>
             <Card>
               <CardContent className="p-6">
                 <div className="flex flex-wrap gap-3">
@@ -184,7 +164,7 @@ export const AboutPageContent = () => {
                     >
                       <Badge
                         variant="outline"
-                        className="px-4 py-2 text-sm hover:bg-accent transition-colors"
+                        className="hover:bg-accent px-4 py-2 text-sm transition-colors"
                       >
                         {skill}
                       </Badge>
@@ -197,5 +177,5 @@ export const AboutPageContent = () => {
         </div>
       </div>
     </div>
-  );
+  )
 }

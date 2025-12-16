@@ -23,7 +23,11 @@ export const useBlogPosts = () =>
   useQuery({ queryKey: ['blog-posts'], queryFn: fetchBlogPosts, staleTime: FIVE_MINUTES })
 
 export const useBlogPost = (slug: string) =>
-  useQuery({ queryKey: ['blog-post', slug], queryFn: () => fetchBlogPost(slug), staleTime: FIVE_MINUTES })
+  useQuery({
+    queryKey: ['blog-post', slug],
+    queryFn: () => fetchBlogPost(slug),
+    staleTime: FIVE_MINUTES,
+  })
 
 export const useRecentBlogPosts = (limit = 3) =>
   useQuery({

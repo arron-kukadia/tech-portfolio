@@ -13,8 +13,10 @@ export const NavLink = ({ href, label, isActive, onClick }: NavLinkProps) => (
     href={href}
     onClick={onClick}
     className={cn(
-      'px-4 py-2 rounded-lg text-sm font-medium transition-colors',
-      isActive ? 'text-foreground bg-accent' : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
+      'rounded-lg px-4 py-2 text-sm font-medium transition-colors',
+      isActive
+        ? 'text-foreground bg-accent'
+        : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
     )}
   >
     {label}

@@ -1,59 +1,59 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Providers } from "@/components/providers";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
-import "./globals.css";
+import type { Metadata } from 'next'
+import { Geist, Geist_Mono } from 'next/font/google'
+import { Providers } from '@/components/providers'
+import { Header } from '@/components/layout/header'
+import { Footer } from '@/components/layout/footer'
+import './globals.css'
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+})
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: {
-    default: "Arron | Full Stack Developer",
-    template: "%s | Arron",
+    default: 'Arron | Full Stack Developer',
+    template: '%s | Arron',
   },
   description:
-    "Full Stack Developer specializing in building modern, scalable web applications. View my portfolio, projects, and blog posts.",
+    'Full Stack Developer specializing in building modern, scalable web applications. View my portfolio, projects, and blog posts.',
   keywords: [
-    "Full Stack Developer",
-    "Web Developer",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Portfolio",
+    'Full Stack Developer',
+    'Web Developer',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Portfolio',
   ],
-  authors: [{ name: "Arron" }],
+  authors: [{ name: 'Arron' }],
   openGraph: {
-    type: "website",
-    locale: "en_GB",
-    siteName: "Arron Portfolio",
+    type: 'website',
+    locale: 'en_GB',
+    siteName: 'Arron Portfolio',
   },
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
   },
   robots: {
     index: true,
     follow: true,
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
       >
         <Providers>
           <Header />
@@ -62,5 +62,5 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
-  );
+  )
 }

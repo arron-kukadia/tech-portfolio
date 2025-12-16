@@ -16,7 +16,7 @@ type ProjectCardProps = {
 
 export const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => (
   <motion.div {...fadeInView(index * 0.1)}>
-    <Card className="overflow-hidden group h-full flex flex-col">
+    <Card className="group flex h-full flex-col overflow-hidden">
       <div className="relative h-48 overflow-hidden">
         {project.coverImage ? (
           <Image
@@ -26,20 +26,24 @@ export const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => (
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
         ) : (
-          <div className="h-full bg-gradient-to-br from-violet-500/20 to-indigo-500/20 flex items-center justify-center">
-            <span className="text-4xl font-bold text-muted-foreground/30">{project.title[0]}</span>
+          <div className="flex h-full items-center justify-center bg-gradient-to-br from-violet-500/20 to-indigo-500/20">
+            <span className="text-muted-foreground/30 text-4xl font-bold">{project.title[0]}</span>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="from-background/80 absolute inset-0 bg-gradient-to-t to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </div>
-      <CardContent className="p-6 flex-1 flex flex-col">
-        <h3 className="text-xl font-semibold mb-2 group-hover:text-violet-400 transition-colors">
+      <CardContent className="flex flex-1 flex-col p-6">
+        <h3 className="mb-2 text-xl font-semibold transition-colors group-hover:text-violet-400">
           {project.title}
         </h3>
-        <p className="text-muted-foreground text-sm mb-4 flex-1 line-clamp-2">{project.description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
+        <p className="text-muted-foreground mb-4 line-clamp-2 flex-1 text-sm">
+          {project.description}
+        </p>
+        <div className="mb-4 flex flex-wrap gap-2">
           {project.technologies.slice(0, 3).map((tech) => (
-            <Badge key={tech} variant="gradient">{tech}</Badge>
+            <Badge key={tech} variant="gradient">
+              {tech}
+            </Badge>
           ))}
           {project.technologies.length > 3 && (
             <Badge variant="outline">+{project.technologies.length - 3}</Badge>

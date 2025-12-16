@@ -24,20 +24,28 @@ export const Header = () => {
   const { isMobileMenuOpen, toggleMobileMenu, setMobileMenuOpen } = useNavigationStore()
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
+    <header className="bg-background/80 border-border/50 fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-lg">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-xl font-bold bg-gradient-to-r from-violet-500 to-indigo-500 bg-clip-text text-transparent">
+        <div className="flex h-16 items-center justify-between">
+          <Link
+            href="/"
+            className="bg-gradient-to-r from-violet-500 to-indigo-500 bg-clip-text text-xl font-bold text-transparent"
+          >
             {personalInfo.name}
           </Link>
 
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
-              <NavLink key={item.href} href={item.href} label={item.label} isActive={pathname === item.href} />
+              <NavLink
+                key={item.href}
+                href={item.href}
+                label={item.label}
+                isActive={pathname === item.href}
+              />
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden items-center gap-2 md:flex">
             <ThemeToggle theme={theme} onToggle={toggleTheme} />
             <Button variant="gradient" size="sm" asChild>
               <a href={personalInfo.cvUrl} download>
@@ -47,7 +55,7 @@ export const Header = () => {
             </Button>
           </div>
 
-          <div className="md:hidden flex items-center gap-2">
+          <div className="flex items-center gap-2 md:hidden">
             <ThemeToggle theme={theme} onToggle={toggleTheme} />
             <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle menu">
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -62,9 +70,9 @@ export const Header = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden"
+              className="overflow-hidden md:hidden"
             >
-              <div className="py-4 space-y-2">
+              <div className="space-y-2 py-4">
                 {navItems.map((item) => (
                   <NavLink
                     key={item.href}
