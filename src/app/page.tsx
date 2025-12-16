@@ -4,14 +4,14 @@ import { Skills } from '@/components/sections/skills'
 import { RecentPosts } from '@/components/sections/recent-posts'
 import { CTA } from '@/components/sections/cta'
 
-export default function Home() {
-  return (
-    <>
-      <Hero />
-      <FeaturedProjects />
-      <Skills />
-      <RecentPosts />
-      <CTA />
-    </>
-  )
-}
+const Home = () => (
+  <>
+    <Hero />
+    <FeaturedProjects />
+    <Skills />
+    <RecentPosts />
+    <CTA />
+  </>
+)
+
+export default Home

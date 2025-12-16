@@ -6,6 +6,6 @@ export const metadata: Metadata = {
   description: 'Thoughts, tutorials, and insights on web development, programming, and technology.',
 }
 
-export default function BlogPage() {
-  return <BlogPageContent />
-}
+const BlogPage = () => <BlogPageContent />
+
+export default BlogPage

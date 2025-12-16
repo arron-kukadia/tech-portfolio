@@ -6,6 +6,6 @@ export const metadata: Metadata = {
   description: 'Learn more about my background, experience, and the technologies I work with.',
 }
 
-export default function AboutPage() {
-  return <AboutPageContent />
-}
+const AboutPage = () => <AboutPageContent />
+
+export default AboutPage

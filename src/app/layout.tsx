@@ -45,22 +45,18 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
-      >
-        <Providers>
-          <Header />
-          <main className="flex-1 pt-16">{children}</main>
-          <Footer />
-        </Providers>
-      </body>
-    </html>
-  )
-}
+const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
+  <html lang="en" className="dark" suppressHydrationWarning>
+    <body
+      className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
+    >
+      <Providers>
+        <Header />
+        <main className="flex-1 pt-16">{children}</main>
+        <Footer />
+      </Providers>
+    </body>
+  </html>
+)
+
+export default RootLayout
