@@ -25,9 +25,16 @@ export const BlogPageContent = () => {
         </motion.div>
 
         <div className="mx-auto max-w-4xl space-y-6">
-          {isLoading
-            ? [0, 1, 2, 3].map((i) => <BlogListSkeleton key={i} />)
-            : posts?.map((post, index) => <BlogListCard key={post.id} post={post} index={index} />)}
+          {isLoading ? (
+            <>
+              <BlogListSkeleton />
+              <BlogListSkeleton />
+              <BlogListSkeleton />
+              <BlogListSkeleton />
+            </>
+          ) : (
+            posts?.map((post, index) => <BlogListCard key={post.id} post={post} index={index} />)
+          )}
         </div>
       </div>
     </div>

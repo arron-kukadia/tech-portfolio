@@ -23,9 +23,15 @@ export const RecentPosts = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {isLoading
-            ? [0, 1, 2].map((i) => <PostSkeleton key={i} />)
-            : posts?.map((post, index) => <PostCard key={post.id} post={post} index={index} />)}
+          {isLoading ? (
+            <>
+              <PostSkeleton />
+              <PostSkeleton />
+              <PostSkeleton />
+            </>
+          ) : (
+            posts?.map((post, index) => <PostCard key={post.id} post={post} index={index} />)
+          )}
         </div>
 
         <motion.div {...fadeInView(0.3)} className="mt-12 text-center">

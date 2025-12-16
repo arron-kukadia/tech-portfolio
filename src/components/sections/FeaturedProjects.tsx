@@ -24,11 +24,17 @@ export const FeaturedProjects = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {isLoading
-            ? [0, 1, 2].map((i) => <ProjectSkeleton key={i} />)
-            : projects?.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} />
-              ))}
+          {isLoading ? (
+            <>
+              <ProjectSkeleton />
+              <ProjectSkeleton />
+              <ProjectSkeleton />
+            </>
+          ) : (
+            projects?.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))
+          )}
         </div>
 
         <motion.div {...fadeInView(0.3)} className="mt-12 text-center">
