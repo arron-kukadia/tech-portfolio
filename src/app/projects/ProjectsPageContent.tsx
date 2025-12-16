@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ProjectPageCard } from '@/components/cards/ProjectPageCard'
+import { ProjectCard } from '@/components/cards/ProjectCard'
 import { ProjectSkeleton } from '@/components/cards/skeletons/ProjectSkeleton'
 import { useProjects } from '@/hooks/use-projects'
 import { fadeUp } from '@/lib/animations'
@@ -37,7 +37,7 @@ export const ProjectsPageContent = () => {
             </>
           ) : (
             projects?.map((project, index) => (
-              <ProjectPageCard key={project.id} project={project} index={index} />
+              <ProjectCard key={project.id} project={project} index={index} variant="full" />
             ))
           )}
         </div>
