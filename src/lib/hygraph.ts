@@ -65,7 +65,9 @@ export const GET_EXPERIENCE = `
       id
       company
       role
-      description
+      description {
+        html
+      }
       startDate
       endDate
       current

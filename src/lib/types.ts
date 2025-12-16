@@ -25,7 +25,7 @@ export type Experience = {
   id: string
   company: string
   role: string
-  description: string
+  description: { html: string }
   startDate: string
   endDate?: string
   current: boolean

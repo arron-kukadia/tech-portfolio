@@ -153,7 +153,10 @@ export const AboutPageContent = () => {
                               {exp.current ? 'Present' : formatDateShort(exp.endDate!)}
                             </div>
                           </div>
-                          <p className="text-muted-foreground mb-4">{exp.description}</p>
+                          <div
+                            className="text-muted-foreground mb-4 text-sm [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1 [&_p]:mb-2"
+                            dangerouslySetInnerHTML={{ __html: exp.description.html }}
+                          />
                           <div className="flex flex-wrap gap-2">
                             {exp.technologies.map((tech) => (
                               <Badge key={tech} variant="gradient">
@@ -184,12 +187,7 @@ export const AboutPageContent = () => {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.3, delay: 0.3 + index * 0.03 }}
                     >
-                      <Badge
-                        variant="outline"
-                        className="hover:bg-accent px-4 py-2 text-sm transition-colors"
-                      >
-                        {skill}
-                      </Badge>
+                      <Badge variant="gradient">{skill}</Badge>
                     </motion.div>
                   ))}
                 </div>

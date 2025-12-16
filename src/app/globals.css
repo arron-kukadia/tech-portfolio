@@ -1,9 +1,11 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
+    --badge-text: 262 83% 40%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
@@ -27,6 +29,7 @@
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
+    --badge-text: 263 70% 80%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
@@ -88,3 +91,4 @@ html {
   background-color: hsl(var(--primary) / 0.3);
   color: hsl(var(--foreground));
 }
+
