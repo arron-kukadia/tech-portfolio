@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -7,8 +8,7 @@ import { Menu, X, Download } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { NavLink } from '@/components/layout/NavLink'
 import { ThemeToggle } from '@/components/layout/ThemeToggle'
-import { useThemeStore } from '@/store/theme-store'
-import { useNavigationStore } from '@/store/navigation-store'
+import { useThemeStore } from '@/store/themeStore'
 import { usePersonalInfo } from '@/hooks/usePersonalInfo'
 
 const navItems = [
@@ -21,7 +21,7 @@ const navItems = [
 export const Header = () => {
   const pathname = usePathname()
   const { theme, toggleTheme } = useThemeStore()
-  const { isMobileMenuOpen, toggleMobileMenu, setMobileMenuOpen } = useNavigationStore()
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { data: info } = usePersonalInfo()
 
   return (
@@ -60,7 +60,7 @@ export const Header = () => {
 
           <div className="flex items-center gap-2 md:hidden">
             <ThemeToggle theme={theme} onToggle={toggleTheme} />
-            <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle menu">
+            <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle menu">
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>

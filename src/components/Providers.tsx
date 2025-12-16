@@ -2,7 +2,7 @@
 
 import { ReactNode, useState, useEffect, useSyncExternalStore } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { useThemeStore } from '@/store/theme-store'
+import { useThemeStore } from '@/store/themeStore'
 import { ONE_MINUTE } from '@/lib/constants'
 
 const useHasMounted = () =>
