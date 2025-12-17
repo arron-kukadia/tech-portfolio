@@ -1,104 +1,123 @@
-# Portfolio Website
+# Arron Kukadia · Tech Portfolio
 
-A modern, responsive portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. Features a sleek dark theme, smooth animations, and CMS integration ready.
+A bespoke portfolio built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS 4**. The site showcases projects, blog posts, experience, and skills with rich animations, a persistent dark/light theme, and data sourced from a Hygraph CMS.
+
+## TODO
+
+- Add tests
+
+## Highlights
+
+- Hero, featured projects, skills grid, blog preview, and contact CTA sections
+- CMS-driven content with TanStack Query caching and graceful skeleton states
+- Framer Motion animations and gradient highlights throughout the UI
+- Dark/light theming persisted via a Zustand store
+- Responsive layout optimized for desktop, tablet, and mobile
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **UI Components**: Custom components with Radix UI primitives
-- **Animations**: Framer Motion
-- **State Management**: Zustand
-- **Data Fetching**: TanStack Query
-- **CMS**: Hygraph (optional)
-- **Icons**: Lucide React
+| Area                    | Tools                                               |
+| ----------------------- | --------------------------------------------------- |
+| Framework               | Next.js 16 (App Router)                             |
+| Language                | TypeScript (React 19)                               |
+| Styling                 | Tailwind CSS 4, custom utility classes              |
+| Components & Primitives | Headless UI, custom UI kit, Radix-inspired patterns |
+| State & Data            | Zustand (theme), TanStack Query (CMS data)          |
+| Animation               | Framer Motion                                       |
+| CMS                     | Hygraph (GraphQL)                                   |
+| Icons                   | Lucide React                                        |
 
-## Features
+## Prerequisites
 
-- Responsive design optimized for all devices
-- Dark/Light theme toggle with persistence
-- Projects showcase with filtering
-- Blog with individual post pages
-- Experience timeline
-- Skills display
-- CV download button
-- Social media links (LinkedIn, GitHub, Instagram)
-- SEO optimized with meta tags
-- Smooth page transitions and animations
+- Node.js **>= 20** (to match Next.js 16 requirements)
+- npm (ships with Node) or another package manager
 
-## Getting Started
-
-1. Install dependencies:
+## Local Development
 
 ```bash
-npm install
+npm install          # install dependencies
+cp .env.example .env.local  # populate with your CMS credentials
+npm run dev          # start the app on http://localhost:3000
 ```
 
-2. Run the development server:
+Available scripts:
 
-```bash
-npm run dev
-```
+- `npm run dev` – Next.js dev server
+- `npm run build` – production build
+- `npm run start` – serve the production build
+- `npm run lint` – run ESLint
+- `npm run format` / `npm run format:check` – Prettier with Tailwind plugin
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+## Environment Variables
 
-## Hygraph CMS Setup (Optional)
+Create a `.env.local` file in the project root containing:
 
-To use Hygraph for managing content:
+| Variable                       | Required | Description                                               |
+| ------------------------------ | -------- | --------------------------------------------------------- |
+| `NEXT_PUBLIC_HYGRAPH_ENDPOINT` | ✅       | Hygraph Content API endpoint (Public Content API URL)     |
+| `NEXT_PUBLIC_HYGRAPH_TOKEN`    | ➖       | Permanent Auth Token if your Content API requires headers |
 
-1. Create a free account at [hygraph.com](https://hygraph.com)
-2. Create a new project
-3. Set up the following models:
-   - **Project**: title, slug, description, technologies, githubUrl, liveUrl, coverImage, featured
-   - **Post**: title, slug, excerpt, content, publishedAt, coverImage, tags
-   - **Experience**: company, role, description, startDate, endDate, current, technologies
+> All GraphQL requests originate from the client via `graphql-request`. If you restrict your API, supply the token to add the `Authorization: Bearer <token>` header.
 
-4. Create a `.env.local` file:
+Without a valid endpoint the data hooks will fail, so set these before running the site.
 
-```
-NEXT_PUBLIC_HYGRAPH_ENDPOINT=your_hygraph_content_api_endpoint
-```
+## Hygraph Schema
 
-Without the Hygraph endpoint, the site uses mock data automatically.
+Configure the following content models (fields can be tailored, but the API currently expects these shapes):
 
-## Customization
+1. **PersonalInfo**
+   - `name`, `title`, `tagline`, `bio`, `location`, `email`
+   - `github`, `linkedin`, `instagram`
+   - `cv` (Asset), `profileImage` (Asset)
+   - `skills` (list of strings)
+2. **Project**
+   - `title`, `slug`, `description`, `technologies` (string list)
+   - `githubUrl`, `liveUrl`, `featured` (boolean)
+   - `coverImage` (Asset)
+3. **Post**
+   - `title`, `slug`, `excerpt`, `content` (Rich Text), `publishedAtTime`
+   - `coverImage` (Asset), `tags` (string list)
+4. **Experience**
+   - `company`, `role`, `description` (Rich Text)
+   - `startDate`, `endDate`, `current`, `technologies` (string list)
 
-Update your personal info in `src/lib/mock-data.ts`:
-
-- Name and title
-- Bio and tagline
-- Social media links
-- Skills list
-- Email and location
-
-Replace `public/cv.pdf` with your actual CV.
-
-## Deployment
-
-Deploy easily on Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
-
-Or build for production:
-
-```bash
-npm run build
-npm start
-```
+Publish at least one entry per model so TanStack Query can render hydrated sections.
 
 ## Project Structure
 
 ```
 src/
-├── app/                 # Next.js App Router pages
+├── app/                # App Router routes (home, projects, blog, about)
 ├── components/
-│   ├── layout/         # Header, Footer
-│   ├── sections/       # Page sections (Hero, Skills, etc.)
-│   └── ui/             # Reusable UI components
-├── hooks/              # Custom React hooks
-├── lib/                # Utilities and data
-└── store/              # Zustand stores
+│   ├── cards/          # Project, blog, and skill cards
+│   ├── sections/       # Page sections (Hero, CTA, etc.)
+│   └── ui/             # Buttons, badges, skeletons, etc.
+├── hooks/              # Data-fetching hooks (projects, posts, experience, personal info)
+├── lib/                # GraphQL client, animations, constants, helpers, types
+└── store/              # Zustand stores (theme persistence)
+```
+
+## Customization Tips
+
+1. **Branding & Content** – Update entries in Hygraph; no redeploy is required thanks to client-side queries.
+2. **Colors & Typography** – Adjust Tailwind tokens in `src/app/globals.css`.
+3. **Sections** – Each major section lives in `src/components/sections`. Duplicate or trim components as needed.
+4. **Animations** – Tweak variants in `src/lib/animations.ts` to control motion curves and delays.
+
+## Deployment
+
+The project is tuned for Vercel (SSR/ISR ready):
+
+1. Push the repo to GitHub.
+2. Create a new Vercel project and import the repo.
+3. Add the same environment variables (`NEXT_PUBLIC_HYGRAPH_*`).
+4. Deploy — Vercel will run `npm install` + `npm run build` automatically.
+
+You can also self-host:
+
+```bash
+npm run build
+npm start   # Serves the compiled Next.js app on port 3000
 ```
 
 ## License
