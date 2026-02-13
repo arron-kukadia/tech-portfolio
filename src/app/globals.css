@@ -126,8 +126,5 @@ html {
 .dark .prose :where(code):not(:where(pre code)) {
   background-color: hsl(240 10% 14%);
   border: 1px solid hsl(240 3.7% 22%);
-  padding: 0.2em 0.4em;
-  border-radius: 0.25rem;
-  font-size: 0.875em;
 }
 

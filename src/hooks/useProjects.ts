@@ -15,7 +15,8 @@ export const useProjects = () =>
 
 export const useFeaturedProjects = () =>
   useQuery({
-    queryKey: ['projects', 'featured'],
-    queryFn: async () => (await fetchProjects()).slice(0, 3),
+    queryKey: ['projects'],
+    queryFn: fetchProjects,
     staleTime: FIVE_MINUTES,
+    select: (data) => data.slice(0, 3),
   })

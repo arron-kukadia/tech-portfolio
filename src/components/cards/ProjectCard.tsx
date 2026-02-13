@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { fadeInView, fadeUp } from '@/lib/animations'
+import { cn } from '@/lib/utils'
 import { Project } from '@/lib/types'
 
 type ProjectCardProps = {
@@ -51,7 +52,7 @@ export const ProjectCard = ({ project, index = 0, variant = 'compact' }: Project
           <h3 className="mb-2 text-xl font-semibold transition-colors group-hover:text-violet-400">
             {project.title}
           </h3>
-          <p className={`text-muted-foreground mb-4 text-sm ${isCompact ? 'line-clamp-2' : ''} flex-1`}>
+          <p className={cn('text-muted-foreground mb-4 flex-1 text-sm', isCompact && 'line-clamp-2')}>
             {project.description}
           </p>
           <div className="mb-4 flex flex-wrap gap-2">

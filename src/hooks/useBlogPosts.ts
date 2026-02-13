@@ -27,7 +27,8 @@ export const useBlogPost = (slug: string) =>
 
 export const useRecentBlogPosts = (limit = 3) =>
   useQuery({
-    queryKey: ['blog-posts', 'recent', limit],
-    queryFn: async () => (await fetchBlogPosts()).slice(0, limit),
+    queryKey: ['blog-posts'],
+    queryFn: fetchBlogPosts,
     staleTime: FIVE_MINUTES,
+    select: (data) => data.slice(0, limit),
   })

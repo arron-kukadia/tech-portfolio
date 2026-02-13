@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
   <html lang="en" className="dark" suppressHydrationWarning>
     <body
-      className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col`}
     >
       <Providers>
         <Header />

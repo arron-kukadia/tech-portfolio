@@ -1,27 +1,17 @@
 'use client'
 
-import { ReactNode, useState, useEffect, useSyncExternalStore } from 'react'
+import { ReactNode, useState, useEffect } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useThemeStore } from '@/store/themeStore'
 import { ONE_MINUTE } from '@/lib/constants'
 
-const useHasMounted = () =>
-  useSyncExternalStore(
-    () => () => {},
-    () => true,
-    () => false
-  )
-
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const { theme } = useThemeStore()
-  const hasMounted = useHasMounted()
 
   useEffect(() => {
-    if (hasMounted) {
-      document.documentElement.classList.remove('light', 'dark')
-      document.documentElement.classList.add(theme)
-    }
-  }, [theme, hasMounted])
+    document.documentElement.classList.remove('light', 'dark')
+    document.documentElement.classList.add(theme)
+  }, [theme])
 
   return <>{children}</>
 }
