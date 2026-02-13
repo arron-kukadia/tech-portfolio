@@ -92,3 +92,42 @@ html {
   color: hsl(var(--foreground));
 }
 
+/* Blog prose typography overrides */
+/* Light mode: ensure text, headings, bold, and links are dark and readable */
+.prose {
+  --tw-prose-body: hsl(240 10% 15%);
+  --tw-prose-headings: hsl(240 10% 8%);
+  --tw-prose-bold: hsl(240 10% 8%);
+  --tw-prose-links: hsl(262.1 83.3% 50%);
+  --tw-prose-code: hsl(262.1 83.3% 45%);
+}
+
+.prose :where(code):not(:where(pre code)) {
+  background-color: hsl(var(--muted));
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+/* Dark mode: make code snippets stand out with a visible background */
+.dark .prose {
+  --tw-prose-body: hsl(0 0% 85%);
+  --tw-prose-headings: hsl(0 0% 98%);
+  --tw-prose-bold: hsl(0 0% 98%);
+  --tw-prose-links: hsl(263.4 70% 70%);
+  --tw-prose-code: hsl(263.4 70% 80%);
+}
+
+.dark .prose :where(pre) {
+  background-color: hsl(240 10% 10%);
+  border: 1px solid hsl(240 3.7% 20%);
+}
+
+.dark .prose :where(code):not(:where(pre code)) {
+  background-color: hsl(240 10% 14%);
+  border: 1px solid hsl(240 3.7% 22%);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
