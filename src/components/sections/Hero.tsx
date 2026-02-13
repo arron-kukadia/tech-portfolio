@@ -87,7 +87,7 @@ export const Hero = () => {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-accent hover:bg-accent/80 text-muted-foreground hover:text-foreground flex h-12 w-12 items-center justify-center rounded-xl transition-all hover:scale-110"
+                    className="bg-accent hover:bg-accent/80 text-muted-foreground hover:text-foreground flex h-12 w-12 items-center justify-center rounded-xl transition-[transform,background-color,color] hover:scale-110"
                     aria-label={label}
                   >
                     <Icon className="h-6 w-6" />
