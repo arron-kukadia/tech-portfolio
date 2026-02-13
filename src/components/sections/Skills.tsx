@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Skeleton } from '@/components/ui/Skeleton'
 import { SkillBadge } from '@/components/cards/SkillBadge'
 import { usePersonalInfo } from '@/hooks/usePersonalInfo'
-import { fadeInView } from '@/lib/animations'
+import { fadeInView, staggerContainer } from '@/lib/animations'
 
 export const Skills = () => {
   const { data: info, isLoading } = usePersonalInfo()
@@ -41,11 +41,11 @@ export const Skills = () => {
           </p>
         </motion.div>
 
-        <div className="mx-auto flex max-w-4xl flex-wrap justify-center gap-3">
-          {info.skills.map((skill, index) => (
-            <SkillBadge key={skill} skill={skill} index={index} />
+        <motion.div {...staggerContainer(0.03)} className="mx-auto flex max-w-4xl flex-wrap justify-center gap-3">
+          {info.skills.map((skill) => (
+            <SkillBadge key={skill} skill={skill} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
