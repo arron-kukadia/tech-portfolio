@@ -15,7 +15,7 @@ export const AboutSkills = ({ skills }: AboutSkillsProps) => (
     <Card>
       <CardContent className="p-6">
         <div className="flex flex-wrap gap-3">
-          {skills.map((skill: string, index: number) => (
+          {skills.map((skill, index) => (
             <motion.div
               key={skill}
               initial={{ opacity: 0, scale: 0.8 }}

@@ -20,7 +20,9 @@ export const metadata: Metadata = {
     default: 'Arron | Senior Frontend Software Engineer',
     template: '%s | Arron',
   },
-  description: 'I\'m a Senior Frontend Software Engineer with 5+ years building high-impact web and mobile apps in React and React Native with TypeScript. Proven track record leading feature delivery, driving architectural improvements, and mentoring engineers. Strong focus on performance, UI/UX, developer experience, and product-first engineering.',  keywords: [
+  description:
+    "I'm a Senior Frontend Software Engineer with 5+ years building high-impact web and mobile apps in React and React Native with TypeScript. Proven track record leading feature delivery, driving architectural improvements, and mentoring engineers. Strong focus on performance, UI/UX, developer experience, and product-first engineering.",
+  keywords: [
     'Senior Frontend Software Engineer',
     'Web Developer',
     'React',

@@ -47,6 +47,7 @@ export const GET_BLOG_POST = `
       id
       title
       slug
+      excerpt
       content {
         html
       }

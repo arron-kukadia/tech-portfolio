@@ -3,13 +3,7 @@
 import Link from 'next/link'
 import { Github, Linkedin, Instagram, Mail, Heart } from 'lucide-react'
 import { usePersonalInfo } from '@/hooks/usePersonalInfo'
-
-const footerLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About & Experience' },
-]
+import { NAV_ITEMS } from '@/lib/constants'
 
 export const Footer = () => {
   const { data: info } = usePersonalInfo()
@@ -40,7 +34,7 @@ export const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-sm font-semibold">Quick Links</h4>
             <nav className="flex flex-col gap-2">
-              {footerLinks.map(({ href, label }) => (
+              {NAV_ITEMS.map(({ href, label }) => (
                 <Link
                   key={href}
                   href={href}

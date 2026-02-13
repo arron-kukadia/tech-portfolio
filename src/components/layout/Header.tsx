@@ -10,13 +10,7 @@ import { NavLink } from '@/components/layout/NavLink'
 import { ThemeToggle } from '@/components/layout/ThemeToggle'
 import { useThemeStore } from '@/store/themeStore'
 import { usePersonalInfo } from '@/hooks/usePersonalInfo'
-
-const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About & Experience' },
-]
+import { NAV_ITEMS } from '@/lib/constants'
 
 export const Header = () => {
   const pathname = usePathname()
@@ -36,7 +30,7 @@ export const Header = () => {
           </Link>
 
           <div className="hidden items-center gap-1 md:flex">
-            {navItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <NavLink
                 key={item.href}
                 href={item.href}
@@ -63,7 +57,7 @@ export const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -81,7 +75,7 @@ export const Header = () => {
               className="overflow-hidden md:hidden"
             >
               <div className="flex flex-col gap-2 py-4">
-                {navItems.map((item) => (
+                {NAV_ITEMS.map((item) => (
                   <NavLink
                     key={item.href}
                     href={item.href}

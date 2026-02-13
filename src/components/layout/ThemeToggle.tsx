@@ -4,7 +4,7 @@ import { Sun, Moon } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 type ThemeToggleProps = {
-  theme: string
+  theme: 'light' | 'dark'
   onToggle: () => void
 }
 
