@@ -19,7 +19,7 @@ export const Hero = () => {
 
   if (isLoading) {
     return (
-      <section className="flex min-h-[calc(100vh-4rem)] items-center justify-center py-20">
+      <section className="flex min-h-[calc(100vh-8rem)] items-center justify-center py-20">
         <div className="container mx-auto px-4 text-center">
           <Skeleton className="mx-auto mb-6 h-10 w-48" />
           <Skeleton className="mx-auto mb-6 h-16 w-96" />
@@ -32,7 +32,7 @@ export const Hero = () => {
   if (!info) return null
 
   return (
-    <section className="flex min-h-[calc(100vh-4rem)] items-center justify-center py-20">
+    <section className="flex min-h-[calc(100vh-8rem)] items-center justify-center py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <motion.div {...fadeUp()}>
