@@ -96,21 +96,6 @@ export const Hero = () => {
             )}
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 lg:block"
-        >
-          <div className="border-muted-foreground/30 flex h-10 w-6 items-start justify-center rounded-full border-2 p-2">
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="bg-muted-foreground/50 h-1.5 w-1.5 rounded-full"
-            />
-          </div>
-        </motion.div>
       </div>
     </section>
   )
