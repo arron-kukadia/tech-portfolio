@@ -78,7 +78,7 @@ export const ProjectCard = ({ project, index = 0, variant = 'compact' }: Project
               <Button variant={isCompact ? 'outline' : 'gradient'} size="sm" asChild>
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="h-4 w-4" />
-                  {isCompact ? 'Live' : 'Live Demo'}
+                  {isCompact ? 'Live' : 'View Live'}
                 </a>
               </Button>
             )}
