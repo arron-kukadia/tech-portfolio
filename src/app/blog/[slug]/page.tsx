@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
 import { fetchBlogPost, fetchBlogPosts } from '@/lib/hygraph'
-import { ISR_REVALIDATE_SECONDS } from '@/lib/constants'
 import { BlogPostContent } from './BlogPostContent'
 
 type Props = {
   params: Promise<{ slug: string }>
 }
 
-export const revalidate = ISR_REVALIDATE_SECONDS
+export const revalidate = 3600
 
 export const generateStaticParams = async () => {
   const posts = await fetchBlogPosts()

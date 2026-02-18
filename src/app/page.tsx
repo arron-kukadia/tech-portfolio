@@ -1,12 +1,11 @@
 import { fetchPersonalInfo, fetchProjects, fetchBlogPosts } from '@/lib/hygraph'
-import { ISR_REVALIDATE_SECONDS } from '@/lib/constants'
 import { Hero } from '@/components/sections/Hero'
 import { FeaturedProjects } from '@/components/sections/FeaturedProjects'
 import { Skills } from '@/components/sections/Skills'
 import { RecentPosts } from '@/components/sections/RecentPosts'
 import { CTA } from '@/components/sections/CTA'
 
-export const revalidate = ISR_REVALIDATE_SECONDS
+export const revalidate = 3600
 
 const Home = async () => {
   const [info, projects, posts] = await Promise.all([

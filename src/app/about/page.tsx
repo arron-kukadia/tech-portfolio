@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { fetchPersonalInfo, fetchExperience } from '@/lib/hygraph'
-import { ISR_REVALIDATE_SECONDS } from '@/lib/constants'
 import { AboutPageContent } from './AboutPageContent'
 
 export const metadata: Metadata = {
@@ -8,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Learn more about my background, experience, and the technologies I work with.',
 }
 
-export const revalidate = ISR_REVALIDATE_SECONDS
+export const revalidate = 3600
 
 const AboutPage = async () => {
   const [info, experience] = await Promise.all([
