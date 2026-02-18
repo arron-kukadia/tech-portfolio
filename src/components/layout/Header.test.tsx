@@ -24,19 +24,15 @@ vi.mock('framer-motion', () => ({
   AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }))
 
-vi.mock('@/hooks/usePersonalInfo', () => ({
-  usePersonalInfo: () => ({ data: mockPersonalInfo, isLoading: false }),
-}))
-
 describe('Header', () => {
   it('renders the site name from personal info', () => {
-    renderWithProviders(<Header />)
+    renderWithProviders(<Header info={mockPersonalInfo} />)
 
     expect(screen.getByText('Test User')).toBeInTheDocument()
   })
 
   it('renders all navigation links', () => {
-    renderWithProviders(<Header />)
+    renderWithProviders(<Header info={mockPersonalInfo} />)
 
     expect(screen.getAllByRole('link', { name: 'Home' }).length).toBeGreaterThan(0)
     expect(screen.getAllByRole('link', { name: 'Projects' }).length).toBeGreaterThan(0)
@@ -45,7 +41,7 @@ describe('Header', () => {
   })
 
   it('renders Download CV link when CV url exists', () => {
-    renderWithProviders(<Header />)
+    renderWithProviders(<Header info={mockPersonalInfo} />)
 
     const cvLinks = screen.getAllByRole('link', { name: /download cv/i })
     expect(cvLinks.length).toBeGreaterThan(0)
@@ -53,21 +49,21 @@ describe('Header', () => {
   })
 
   it('renders theme toggle buttons (desktop + mobile)', () => {
-    renderWithProviders(<Header />)
+    renderWithProviders(<Header info={mockPersonalInfo} />)
 
     const toggleButtons = screen.getAllByLabelText('Toggle theme')
     expect(toggleButtons).toHaveLength(2)
   })
 
   it('renders mobile menu toggle button', () => {
-    renderWithProviders(<Header />)
+    renderWithProviders(<Header info={mockPersonalInfo} />)
 
     expect(screen.getByLabelText('Toggle menu')).toBeInTheDocument()
   })
 
   it('toggles mobile menu on button click', async () => {
     const user = userEvent.setup()
-    renderWithProviders(<Header />)
+    renderWithProviders(<Header info={mockPersonalInfo} />)
 
     const menuButton = screen.getByRole('button', { name: 'Toggle menu' })
     await user.click(menuButton)

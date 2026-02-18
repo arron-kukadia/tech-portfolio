@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { Providers } from '@/components/Providers'
+import { fetchPersonalInfo } from '@/lib/hygraph'
+import { ThemeProvider } from '@/components/ThemeProvider'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import './globals.css'
@@ -43,19 +44,23 @@ export const metadata: Metadata = {
   },
 }
 
-const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
-  <html lang="en" className="dark" suppressHydrationWarning>
-    <body
-      className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col`}
-    >
-      <Providers>
-        <Header />
-        <main className="flex-1 pt-16">{children}</main>
-        <Footer />
-      </Providers>
-      <Analytics />
-    </body>
-  </html>
-)
+const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
+  const info = await fetchPersonalInfo()
+
+  return (
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col`}
+      >
+        <ThemeProvider>
+          <Header info={info} />
+          <main className="flex-1 pt-16">{children}</main>
+          <Footer info={info} />
+        </ThemeProvider>
+        <Analytics />
+      </body>
+    </html>
+  )
+}
 
 export default RootLayout

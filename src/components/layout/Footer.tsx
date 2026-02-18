@@ -2,12 +2,14 @@
 
 import Link from 'next/link'
 import { Github, Linkedin, Instagram, Mail, Heart } from 'lucide-react'
-import { usePersonalInfo } from '@/hooks/usePersonalInfo'
+import { PersonalInfo } from '@/lib/types'
 import { NAV_ITEMS } from '@/lib/constants'
 
-export const Footer = () => {
-  const { data: info } = usePersonalInfo()
+type FooterProps = {
+  info: PersonalInfo | null
+}
 
+export const Footer = ({ info }: FooterProps) => {
   if (!info) return null
 
   const socialLinks = [

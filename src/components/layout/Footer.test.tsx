@@ -1,7 +1,6 @@
-import { describe, it, expect, vi, afterEach, beforeEach } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { screen } from '@testing-library/react'
 import { Footer } from '@/components/layout/Footer'
-import { usePersonalInfo } from '@/hooks/usePersonalInfo'
 import { renderWithProviders } from '@/test/test-utils'
 import { mockPersonalInfo } from '@/test/mocks'
 
@@ -11,38 +10,21 @@ vi.mock('next/link', () => ({
   ),
 }))
 
-vi.mock('@/hooks/usePersonalInfo', () => ({
-  usePersonalInfo: vi.fn(),
-}))
-
-const mockUsePersonalInfo = vi.mocked(usePersonalInfo)
-
-afterEach(() => {
-  vi.restoreAllMocks()
-})
-
 describe('Footer', () => {
-  beforeEach(() => {
-    mockUsePersonalInfo.mockReturnValue({
-      data: mockPersonalInfo,
-      isLoading: false,
-    } as ReturnType<typeof usePersonalInfo>)
-  })
-
   it('renders the site name', () => {
-    renderWithProviders(<Footer />)
+    renderWithProviders(<Footer info={mockPersonalInfo} />)
 
     expect(screen.getByText('Test User')).toBeInTheDocument()
   })
 
   it('renders the tagline', () => {
-    renderWithProviders(<Footer />)
+    renderWithProviders(<Footer info={mockPersonalInfo} />)
 
     expect(screen.getByText('Building great web experiences')).toBeInTheDocument()
   })
 
   it('renders quick links', () => {
-    renderWithProviders(<Footer />)
+    renderWithProviders(<Footer info={mockPersonalInfo} />)
 
     expect(screen.getByRole('link', { name: 'Home' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Projects' })).toBeInTheDocument()
@@ -51,7 +33,7 @@ describe('Footer', () => {
   })
 
   it('renders social links with correct hrefs', () => {
-    renderWithProviders(<Footer />)
+    renderWithProviders(<Footer info={mockPersonalInfo} />)
 
     expect(screen.getByLabelText('GitHub')).toHaveAttribute('href', 'https://github.com/testuser')
     expect(screen.getByLabelText('LinkedIn')).toHaveAttribute('href', 'https://linkedin.com/in/testuser')
@@ -60,7 +42,7 @@ describe('Footer', () => {
   })
 
   it('renders social links with noopener noreferrer', () => {
-    renderWithProviders(<Footer />)
+    renderWithProviders(<Footer info={mockPersonalInfo} />)
 
     const githubLink = screen.getByLabelText('GitHub')
     expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer')
@@ -68,7 +50,7 @@ describe('Footer', () => {
   })
 
   it('renders copyright with current year', () => {
-    renderWithProviders(<Footer />)
+    renderWithProviders(<Footer info={mockPersonalInfo} />)
 
     const year = new Date().getFullYear().toString()
     expect(screen.getByText(new RegExp(`© ${year}`))).toBeInTheDocument()
@@ -78,12 +60,7 @@ describe('Footer', () => {
 
 describe('Footer without personal info', () => {
   it('renders nothing when no personal info is available', () => {
-    mockUsePersonalInfo.mockReturnValue({
-      data: null,
-      isLoading: false,
-    } as ReturnType<typeof usePersonalInfo>)
-
-    const { container } = renderWithProviders(<Footer />)
+    const { container } = renderWithProviders(<Footer info={null} />)
 
     expect(container.innerHTML).toBe('')
   })

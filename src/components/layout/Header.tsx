@@ -9,14 +9,17 @@ import { Button } from '@/components/ui/Button'
 import { NavLink } from '@/components/layout/NavLink'
 import { ThemeToggle } from '@/components/layout/ThemeToggle'
 import { useThemeStore } from '@/store/themeStore'
-import { usePersonalInfo } from '@/hooks/usePersonalInfo'
+import { PersonalInfo } from '@/lib/types'
 import { NAV_ITEMS } from '@/lib/constants'
 
-export const Header = () => {
+type HeaderProps = {
+  info: PersonalInfo | null
+}
+
+export const Header = ({ info }: HeaderProps) => {
   const pathname = usePathname()
   const { theme, toggleTheme } = useThemeStore()
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { data: info } = usePersonalInfo()
 
   return (
     <header className="bg-background/80 border-border/50 fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-md will-change-transform">
