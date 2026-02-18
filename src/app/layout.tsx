@@ -4,6 +4,7 @@ import { Providers } from '@/components/Providers'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import './globals.css'
+import { Analytics } from '@vercel/analytics/next';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -52,6 +53,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
         <main className="flex-1 pt-16">{children}</main>
         <Footer />
       </Providers>
+      <Analytics />
     </body>
   </html>
 )
