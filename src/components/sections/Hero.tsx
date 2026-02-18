@@ -4,32 +4,21 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Download, Github, Linkedin, Instagram } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
-import { Skeleton } from '@/components/ui/Skeleton'
-import { usePersonalInfo } from '@/hooks/usePersonalInfo'
+import { PersonalInfo } from '@/lib/types'
 import { fadeUp } from '@/lib/animations'
 
-export const Hero = () => {
-  const { data: info, isLoading } = usePersonalInfo()
+type HeroProps = {
+  info: PersonalInfo | null
+}
+
+export const Hero = ({ info }: HeroProps) => {
+  if (!info) return null
 
   const socialLinks = [
-    { href: info?.github, icon: Github, label: 'GitHub' },
-    { href: info?.linkedin, icon: Linkedin, label: 'LinkedIn' },
-    { href: info?.instagram, icon: Instagram, label: 'Instagram' },
+    { href: info.github, icon: Github, label: 'GitHub' },
+    { href: info.linkedin, icon: Linkedin, label: 'LinkedIn' },
+    { href: info.instagram, icon: Instagram, label: 'Instagram' },
   ]
-
-  if (isLoading) {
-    return (
-      <section className="flex min-h-[calc(100vh-8rem)] items-center justify-center py-20">
-        <div className="container mx-auto px-4 text-center">
-          <Skeleton className="mx-auto mb-6 h-10 w-48" />
-          <Skeleton className="mx-auto mb-6 h-16 w-96" />
-          <Skeleton className="mx-auto mb-8 h-20 w-full max-w-2xl" />
-        </div>
-      </section>
-    )
-  }
-
-  if (!info) return null
 
   return (
     <section className="flex min-h-[calc(100vh-8rem)] items-center justify-center py-20">

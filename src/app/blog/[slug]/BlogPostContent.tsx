@@ -6,20 +6,16 @@ import Link from 'next/link'
 import { Calendar, ArrowLeft, Tag } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
-import { BlogPostSkeleton } from '@/components/cards/skeletons/BlogPostSkeleton'
 import { PostNotFound } from '@/components/cards/PostNotFound'
-import { useBlogPost } from '@/hooks/useBlogPosts'
+import { BlogPost } from '@/lib/types'
 import { fadeUp } from '@/lib/animations'
 import { formatDateLong } from '@/lib/utils'
 
 type BlogPostContentProps = {
-  slug: string
+  post: BlogPost | null
 }
 
-export const BlogPostContent = ({ slug }: BlogPostContentProps) => {
-  const { data: post, isLoading } = useBlogPost(slug)
-
-  if (isLoading) return <BlogPostSkeleton />
+export const BlogPostContent = ({ post }: BlogPostContentProps) => {
   if (!post) return <PostNotFound />
 
   return (

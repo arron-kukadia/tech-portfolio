@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { fetchProjects } from '@/lib/hygraph'
+import { ISR_REVALIDATE_SECONDS } from '@/lib/constants'
 import { ProjectsPageContent } from './ProjectsPageContent'
 
 export const metadata: Metadata = {
@@ -7,6 +9,12 @@ export const metadata: Metadata = {
     'Explore my portfolio of web development projects.',
 }
 
-const ProjectsPage = () => <ProjectsPageContent />
+export const revalidate = ISR_REVALIDATE_SECONDS
+
+const ProjectsPage = async () => {
+  const projects = await fetchProjects()
+
+  return <ProjectsPageContent projects={projects} />
+}
 
 export default ProjectsPage

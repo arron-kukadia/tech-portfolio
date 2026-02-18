@@ -1,29 +1,38 @@
 import type { Metadata } from 'next'
-import { hygraphClient, GET_BLOG_POST } from '@/lib/hygraph'
-import { BlogPost } from '@/lib/types'
+import { fetchBlogPost, fetchBlogPosts } from '@/lib/hygraph'
+import { ISR_REVALIDATE_SECONDS } from '@/lib/constants'
 import { BlogPostContent } from './BlogPostContent'
 
 type Props = {
   params: Promise<{ slug: string }>
 }
 
+export const revalidate = ISR_REVALIDATE_SECONDS
+
+export const generateStaticParams = async () => {
+  const posts = await fetchBlogPosts()
+  return posts.map((post) => ({ slug: post.slug }))
+}
+
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const { slug } = await params
-  const data = await hygraphClient.request<{ post: BlogPost | null }>(GET_BLOG_POST, { slug })
+  const post = await fetchBlogPost(slug)
 
-  if (!data.post) {
+  if (!post) {
     return { title: 'Post Not Found' }
   }
 
   return {
-    title: data.post.title,
-    description: data.post.excerpt,
+    title: post.title,
+    description: post.excerpt,
   }
 }
 
 const BlogPostPage = async ({ params }: Props) => {
   const { slug } = await params
-  return <BlogPostContent slug={slug} />
+  const post = await fetchBlogPost(slug)
+
+  return <BlogPostContent post={post} />
 }
 
 export default BlogPostPage

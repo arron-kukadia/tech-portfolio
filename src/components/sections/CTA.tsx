@@ -3,12 +3,14 @@
 import { motion } from 'framer-motion'
 import { Mail, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { usePersonalInfo } from '@/hooks/usePersonalInfo'
+import { PersonalInfo } from '@/lib/types'
 import { fadeInView } from '@/lib/animations'
 
-export const CTA = () => {
-  const { data: info } = usePersonalInfo()
+type CTAProps = {
+  info: PersonalInfo | null
+}
 
+export const CTA = ({ info }: CTAProps) => {
   if (!info) return null
 
   return (

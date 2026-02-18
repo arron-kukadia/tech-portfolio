@@ -1,4 +1,5 @@
 import { GraphQLClient } from 'graphql-request'
+import { BlogPost, Experience, PersonalInfo, Project } from '@/lib/types'
 
 const hygraphEndpoint = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT || ''
 const hygraphToken = process.env.NEXT_PUBLIC_HYGRAPH_TOKEN || ''
@@ -99,3 +100,28 @@ export const GET_PERSONAL_INFO = `
     }
   }
 `
+
+export const fetchProjects = async (): Promise<Project[]> => {
+  const data = await hygraphClient.request<{ projects: Project[] }>(GET_PROJECTS)
+  return data.projects
+}
+
+export const fetchBlogPosts = async (): Promise<BlogPost[]> => {
+  const data = await hygraphClient.request<{ posts: BlogPost[] }>(GET_BLOG_POSTS)
+  return data.posts
+}
+
+export const fetchBlogPost = async (slug: string): Promise<BlogPost | null> => {
+  const data = await hygraphClient.request<{ post: BlogPost }>(GET_BLOG_POST, { slug })
+  return data.post
+}
+
+export const fetchExperience = async (): Promise<Experience[]> => {
+  const data = await hygraphClient.request<{ experiences: Experience[] }>(GET_EXPERIENCE)
+  return data.experiences
+}
+
+export const fetchPersonalInfo = async (): Promise<PersonalInfo | null> => {
+  const data = await hygraphClient.request<{ personalInfos: PersonalInfo[] }>(GET_PERSONAL_INFO)
+  return data.personalInfos[0] || null
+}

@@ -4,36 +4,22 @@ import { motion } from 'framer-motion'
 import { Briefcase, Calendar } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
-import { Skeleton } from '@/components/ui/Skeleton'
 import { fadeUp } from '@/lib/animations'
 import { formatDateShort } from '@/lib/utils'
 import { Experience } from '@/lib/types'
 
 type ExperienceTimelineProps = {
-  experience?: Experience[]
-  isLoading: boolean
+  experience: Experience[]
 }
 
-export const ExperienceTimeline = ({ experience, isLoading }: ExperienceTimelineProps) => (
+export const ExperienceTimeline = ({ experience }: ExperienceTimelineProps) => (
   <motion.div {...fadeUp(0.2)} className="mb-12">
     <h2 className="mb-6 flex items-center gap-2 text-2xl font-bold">
       <Briefcase className="h-6 w-6 text-violet-400" />
       Experience
     </h2>
     <div className="space-y-6">
-      {isLoading ? (
-        Array.from({ length: 3 }, (_, i) => (
-          <Card key={i}>
-            <CardContent className="p-6">
-              <Skeleton className="mb-2 h-6 w-1/2" />
-              <Skeleton className="mb-4 h-4 w-1/3" />
-              <Skeleton className="mb-2 h-4 w-full" />
-              <Skeleton className="h-4 w-3/4" />
-            </CardContent>
-          </Card>
-        ))
-      ) : (
-        experience?.map((exp, index) => (
+      {experience.map((exp, index) => (
           <motion.div
             key={exp.id}
             initial={{ opacity: 0, x: -20 }}
@@ -68,8 +54,7 @@ export const ExperienceTimeline = ({ experience, isLoading }: ExperienceTimeline
               </CardContent>
             </Card>
           </motion.div>
-        ))
-      )}
+        ))}
     </div>
   </motion.div>
 )
