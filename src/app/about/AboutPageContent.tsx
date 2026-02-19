@@ -22,7 +22,7 @@ export const AboutPageContent = ({ info, experience }: AboutPageContentProps) =>
           <motion.div {...fadeUp()} className="mb-12 text-center">
             <h1 className="mb-4 text-4xl font-bold sm:text-5xl">
               About{' '}
-              <span className="bg-gradient-to-r from-violet-500 to-indigo-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-500 to-blue-500 bg-clip-text text-transparent">
                 Me
               </span>
             </h1>

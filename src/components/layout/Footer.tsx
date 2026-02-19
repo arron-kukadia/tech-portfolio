@@ -26,7 +26,7 @@ export const Footer = ({ info }: FooterProps) => {
           <div className="space-y-4">
             <Link
               href="/"
-              className="bg-gradient-to-r from-violet-500 to-indigo-500 bg-clip-text text-xl font-bold text-transparent"
+              className="bg-gradient-to-r from-sky-500 to-blue-500 bg-clip-text text-xl font-bold text-transparent"
             >
               {info.name}
             </Link>

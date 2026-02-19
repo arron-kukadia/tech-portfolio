@@ -17,8 +17,8 @@ export const CTA = ({ info }: CTAProps) => {
     <section className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div {...fadeInView()} className="mx-auto max-w-3xl text-center">
-          <div className="relative rounded-2xl border border-violet-500/20 bg-gradient-to-br from-violet-500/10 via-purple-500/10 to-indigo-500/10 p-8 sm:p-12">
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-500/5 to-indigo-500/5 blur-xl" />
+          <div className="relative rounded-2xl border border-sky-500/20 bg-gradient-to-br from-sky-500/10 via-cyan-500/10 to-blue-500/10 p-8 sm:p-12">
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-sky-500/5 to-blue-500/5 blur-xl" />
             <div className="relative">
               <h2 className="mb-4 text-3xl font-bold sm:text-4xl">Let&apos;s Work Together</h2>
               <p className="text-muted-foreground mx-auto mb-8 max-w-xl">

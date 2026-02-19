@@ -30,14 +30,14 @@ export const AboutProfileCard = ({ info }: AboutProfileCardProps) => (
                 className="h-32 w-32 rounded-2xl object-cover"
               />
             ) : (
-              <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-500 text-4xl font-bold text-white">
+              <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-blue-500 text-4xl font-bold text-white">
                 {info.name[0]}
               </div>
             )}
           </div>
           <div className="flex-1">
             <h2 className="mb-2 text-2xl font-bold">{info.name}</h2>
-            <p className="mb-4 font-medium text-violet-400">{info.title}</p>
+            <p className="mb-4 font-medium text-sky-400">{info.title}</p>
             <div
               className="prose prose-invert text-muted-foreground mb-4"
               dangerouslySetInnerHTML={{ __html: info.bio.html }}

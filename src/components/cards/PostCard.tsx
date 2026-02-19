@@ -29,7 +29,7 @@ export const PostCard = ({ post, index = 0 }: PostCardProps) => (
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
           ) : (
-            <div className="flex h-full items-center justify-center bg-gradient-to-br from-violet-500/20 to-indigo-500/20">
+            <div className="flex h-full items-center justify-center bg-gradient-to-br from-sky-500/20 to-blue-500/20">
               <span className="text-muted-foreground/30 text-4xl font-bold">{post.title[0]}</span>
             </div>
           )}
@@ -39,7 +39,7 @@ export const PostCard = ({ post, index = 0 }: PostCardProps) => (
             <Calendar className="h-4 w-4" />
             {formatDate(post.publishedAtTime)}
           </div>
-          <h3 className="mb-2 line-clamp-2 text-xl font-semibold transition-colors group-hover:text-violet-400">
+          <h3 className="mb-2 line-clamp-2 text-xl font-semibold transition-colors group-hover:text-sky-400">
             {post.title}
           </h3>
           <p className="text-muted-foreground mb-4 line-clamp-2 flex-1 text-sm">{post.excerpt}</p>

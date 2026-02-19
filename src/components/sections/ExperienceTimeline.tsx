@@ -15,7 +15,7 @@ type ExperienceTimelineProps = {
 export const ExperienceTimeline = ({ experience }: ExperienceTimelineProps) => (
   <motion.div {...fadeUp(0.2)} className="mb-12">
     <h2 className="mb-6 flex items-center gap-2 text-2xl font-bold">
-      <Briefcase className="h-6 w-6 text-violet-400" />
+      <Briefcase className="h-6 w-6 text-sky-400" />
       Experience
     </h2>
     <div className="space-y-6">
@@ -27,12 +27,12 @@ export const ExperienceTimeline = ({ experience }: ExperienceTimelineProps) => (
             transition={{ duration: 0.4, delay: index * 0.1 }}
           >
             <Card className="relative overflow-hidden">
-              <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-violet-500 to-indigo-500" />
+              <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-sky-500 to-blue-500" />
               <CardContent className="p-6 pl-8">
                 <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                   <div>
                     <h3 className="text-xl font-semibold">{exp.role}</h3>
-                    <p className="font-medium text-violet-400">{exp.company}</p>
+                    <p className="font-medium text-sky-400">{exp.company}</p>
                   </div>
                   <div className="text-muted-foreground flex items-center gap-2 text-sm">
                     <Calendar className="h-4 w-4" />

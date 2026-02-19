@@ -60,7 +60,7 @@ export const BlogPostContent = ({ post }: BlogPostContentProps) => {
             </div>
           )}
 
-          <article className="prose prose-lg dark:prose-invert prose-violet max-w-none">
+          <article className="prose prose-lg dark:prose-invert prose-sky max-w-none">
             {post.content ? (
               <div dangerouslySetInnerHTML={{ __html: post.content.html }} />
             ) : (

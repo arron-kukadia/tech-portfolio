@@ -35,7 +35,7 @@ export const ProjectCard = ({ project, index = 0, variant = 'compact' }: Project
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
           ) : (
-            <div className="flex h-full items-center justify-center bg-gradient-to-br from-violet-500/20 to-indigo-500/20">
+            <div className="flex h-full items-center justify-center bg-gradient-to-br from-sky-500/20 to-blue-500/20">
               <span className="text-muted-foreground/30 text-4xl font-bold">{project.title[0]}</span>
             </div>
           )}
@@ -49,7 +49,7 @@ export const ProjectCard = ({ project, index = 0, variant = 'compact' }: Project
           )}
         </div>
         <CardContent className="flex flex-1 flex-col p-6">
-          <h3 className="mb-2 text-xl font-semibold transition-colors group-hover:text-violet-400">
+          <h3 className="mb-2 text-xl font-semibold transition-colors group-hover:text-sky-400">
             {project.title}
           </h3>
           <p className={cn('text-muted-foreground mb-4 flex-1 text-sm', isCompact && 'line-clamp-2')}>

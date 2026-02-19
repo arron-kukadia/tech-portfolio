@@ -25,7 +25,7 @@ export const Hero = ({ info }: HeroProps) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <motion.div {...fadeUp()}>
-            <span className="mb-6 inline-block rounded-full bg-violet-500/10 px-4 py-2 text-sm font-medium text-violet-400">
+            <span className="mb-6 inline-block rounded-full bg-sky-500/10 px-4 py-2 text-sm font-medium text-sky-400">
               {info.title}
             </span>
           </motion.div>
@@ -35,7 +35,7 @@ export const Hero = ({ info }: HeroProps) => {
             className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
           >
             Hi, I&apos;m{' '}
-            <span className="bg-gradient-to-r from-violet-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-sky-500 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
               {info.name}
             </span>
           </motion.h1>
