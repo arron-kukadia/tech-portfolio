@@ -84,7 +84,9 @@ export const GET_PERSONAL_INFO = `
       name
       title
       tagline
-      bio
+      bio {
+        html
+      }
       location
       email
       linkedin

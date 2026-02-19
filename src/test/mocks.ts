@@ -4,7 +4,7 @@ export const mockPersonalInfo: PersonalInfo = {
   name: 'Test User',
   title: 'Senior Frontend Engineer',
   tagline: 'Building great web experiences',
-  bio: 'A passionate developer with 5+ years of experience.',
+  bio: { html: '<p>A passionate developer with 5+ years of experience.</p>' },
   location: 'London, UK',
   email: 'test@example.com',
   linkedin: 'https://linkedin.com/in/testuser',

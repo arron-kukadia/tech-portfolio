@@ -40,12 +40,11 @@ export const Hero = ({ info }: HeroProps) => {
             </span>
           </motion.h1>
 
-          <motion.p
+          <motion.div
             {...fadeUp(0.2)}
-            className="text-muted-foreground mx-auto mb-8 max-w-2xl text-lg sm:text-xl"
-          >
-            {info.bio}
-          </motion.p>
+            className="prose prose-invert text-muted-foreground mx-auto mb-8 max-w-2xl text-lg sm:text-xl"
+            dangerouslySetInnerHTML={{ __html: info.bio.html }}
+          />
 
           <motion.div
             {...fadeUp(0.3)}

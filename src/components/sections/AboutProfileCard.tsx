@@ -38,7 +38,10 @@ export const AboutProfileCard = ({ info }: AboutProfileCardProps) => (
           <div className="flex-1">
             <h2 className="mb-2 text-2xl font-bold">{info.name}</h2>
             <p className="mb-4 font-medium text-violet-400">{info.title}</p>
-            <p className="text-muted-foreground mb-4">{info.bio}</p>
+            <div
+              className="prose prose-invert text-muted-foreground mb-4"
+              dangerouslySetInnerHTML={{ __html: info.bio.html }}
+            />
             <div className="text-muted-foreground flex flex-wrap gap-4 text-sm">
               {info.location && (
                 <span className="flex items-center gap-2">
