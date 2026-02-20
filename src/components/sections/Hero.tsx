@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Download, Github, Linkedin, Instagram } from 'lucide-react'
+import { ArrowRight, Download } from 'lucide-react'
+import { SiGithub, SiLinkedin, SiInstagram } from 'react-icons/si'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { PersonalInfo } from '@/lib/types'
@@ -15,13 +16,13 @@ export const Hero = ({ info }: HeroProps) => {
   if (!info) return null
 
   const socialLinks = [
-    { href: info.github, icon: Github, label: 'GitHub' },
-    { href: info.linkedin, icon: Linkedin, label: 'LinkedIn' },
-    { href: info.instagram, icon: Instagram, label: 'Instagram' },
+    { href: info.github, icon: SiGithub, label: 'GitHub' },
+    { href: info.linkedin, icon: SiLinkedin, label: 'LinkedIn' },
+    { href: info.instagram, icon: SiInstagram, label: 'Instagram' },
   ]
 
   return (
-    <section className="flex min-h-[calc(100vh-8rem)] items-center justify-center py-20">
+    <section className="flex min-h-[calc(100vh-4rem)] items-center justify-center py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <motion.div {...fadeUp()}>

@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Github, ExternalLink } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
+import { SiGithub } from 'react-icons/si'
 import { Button } from '@/components/ui/Button'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
@@ -69,7 +70,7 @@ export const ProjectCard = ({ project, index = 0, variant = 'compact' }: Project
             {project.githubUrl && (
               <Button variant="outline" size="sm" asChild>
                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                  <Github className="h-4 w-4" />
+                  <SiGithub className="h-4 w-4" />
                   Code
                 </a>
               </Button>

@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { Github, Linkedin, Instagram, Mail, Heart } from 'lucide-react'
+import { Mail, Heart } from 'lucide-react'
+import { SiGithub, SiLinkedin, SiInstagram } from 'react-icons/si'
 import { PersonalInfo } from '@/lib/types'
 import { NAV_ITEMS } from '@/lib/constants'
 
@@ -13,9 +14,9 @@ export const Footer = ({ info }: FooterProps) => {
   if (!info) return null
 
   const socialLinks = [
-    { href: info.github, icon: Github, label: 'GitHub' },
-    { href: info.linkedin, icon: Linkedin, label: 'LinkedIn' },
-    { href: info.instagram, icon: Instagram, label: 'Instagram' },
+    { href: info.github, icon: SiGithub, label: 'GitHub' },
+    { href: info.linkedin, icon: SiLinkedin, label: 'LinkedIn' },
+    { href: info.instagram, icon: SiInstagram, label: 'Instagram' },
     { href: `mailto:${info.email}`, icon: Mail, label: 'Email' },
   ].filter((link) => link.href)
 
