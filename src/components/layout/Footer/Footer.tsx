@@ -47,7 +47,7 @@ export const Footer = ({ info }: FooterProps) => {
 
         <div className={styles.bottom}>
           <p className={styles.builtWith}>
-            Built with <Heart className={styles.heart} /> using Next.js & CSS Modules
+            Built with <Heart className={styles.heart} /> using Next.js
           </p>
           <p className={styles.copyright}>
             © {new Date().getFullYear()} {info.name}

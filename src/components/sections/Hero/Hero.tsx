@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Download, Mail } from 'lucide-react'
+import { ArrowRight, ChevronDown, Download, Mail } from 'lucide-react'
 import { SiGithub, SiLinkedin, SiInstagram } from 'react-icons/si'
 import { Button } from '@/components/ui/Button/Button'
 import { fadeUp } from '@/lib/animations'
@@ -94,6 +94,10 @@ export const Hero = ({ info }: HeroProps) => {
             </motion.div>
           </div>
         </div>
+      </div>
+
+      <div className={styles.scrollArrow}>
+        <ChevronDown className={styles.scrollArrowIcon} />
       </div>
     </section>
   )
