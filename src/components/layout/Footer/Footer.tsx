@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Mail, Heart } from 'lucide-react'
+import { Mail } from 'lucide-react'
 import { SiGithub, SiLinkedin, SiInstagram } from 'react-icons/si'
 import { PersonalInfo } from '@/lib/types'
 import styles from './Footer.module.css'
@@ -46,9 +46,6 @@ export const Footer = ({ info }: FooterProps) => {
         </div>
 
         <div className={styles.bottom}>
-          <p className={styles.builtWith}>
-            Built with <Heart className={styles.heart} /> using Next.js
-          </p>
           <p className={styles.copyright}>
             © {new Date().getFullYear()} {info.name}
           </p>
