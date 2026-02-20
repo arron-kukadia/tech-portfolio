@@ -1,23 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { cn, formatDate, formatDateShort, formatDateLong } from './utils'
-
-describe('cn', () => {
-  it('merges class names', () => {
-    expect(cn('px-4', 'py-2')).toBe('px-4 py-2')
-  })
-
-  it('resolves Tailwind conflicts by keeping the last value', () => {
-    expect(cn('px-4', 'px-8')).toBe('px-8')
-  })
-
-  it('handles conditional classes', () => {
-    expect(cn('base', false && 'hidden', 'extra')).toBe('base extra')
-  })
-
-  it('handles undefined and null values', () => {
-    expect(cn('base', undefined, null, 'extra')).toBe('base extra')
-  })
-})
+import { formatDate, formatDateShort, formatDateLong } from './utils'
 
 describe('formatDate', () => {
   const iso = '2025-01-15T10:00:00Z'
