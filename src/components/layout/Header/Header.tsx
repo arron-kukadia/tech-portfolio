@@ -3,13 +3,14 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { Menu, X, Download } from 'lucide-react'
 import { NavLink } from '@/components/layout/NavLink/NavLink'
 import { Button } from '@/components/ui/Button/Button'
 import { NAV_ITEMS } from '@/lib/constants'
 import { PersonalInfo } from '@/lib/types'
 import styles from './Header.module.css'
+import { MobileMenu } from './MobileMenu'
 
 type HeaderProps = {
   info: PersonalInfo | null
@@ -68,35 +69,11 @@ export const Header = ({ info }: HeaderProps) => {
 
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className={styles.mobileMenu}
-            >
-              <div className={styles.mobileMenuContent}>
-                {NAV_ITEMS.map((item) => (
-                  <NavLink
-                    key={item.href}
-                    href={item.href}
-                    label={item.label}
-                    isActive={pathname === item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                  />
-                ))}
-                {info?.cv?.url && (
-                  <div className={styles.mobileMenuCvWrap}>
-                    <Button variant="gradient" size="sm" className={styles.mobileMenuCv} asChild>
-                      <a href={info.cv.url} download>
-                        <Download className={styles.downloadIcon} />
-                        Download CV
-                      </a>
-                    </Button>
-                  </div>
-                )}
-              </div>
-            </motion.div>
+            <MobileMenu
+              pathname={pathname}
+              cvUrl={info?.cv?.url}
+              onNavigate={() => setMobileMenuOpen(false)}
+            />
           )}
         </AnimatePresence>
       </nav>

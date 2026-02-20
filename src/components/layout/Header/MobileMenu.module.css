@@ -1,0 +1,27 @@
+.menu {
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
+.cvWrap {
+  padding-top: 0.5rem;
+}
+
+.cv {
+  width: 100%;
+}
+
+.downloadIcon {
+  height: 1rem;
+  width: 1rem;
+}
