@@ -3,22 +3,24 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Download, MapPin, Mail } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
-import { Card, CardContent } from '@/components/ui/Card'
-import { Separator } from '@/components/ui/Separator'
+import { SiGithub, SiLinkedin } from 'react-icons/si'
+import { Button } from '@/components/ui/Button/Button'
+import { Card, CardContent } from '@/components/ui/Card/Card'
+import { Separator } from '@/components/ui/Separator/Separator'
 import { fadeUp } from '@/lib/animations'
 import { PersonalInfo } from '@/lib/types'
+import styles from './AboutProfileCard.module.css'
 
 type AboutProfileCardProps = {
   info: PersonalInfo
 }
 
 export const AboutProfileCard = ({ info }: AboutProfileCardProps) => (
-  <motion.div {...fadeUp(0.1)} className="mb-12">
+  <motion.div {...fadeUp(0.1)} className={styles.wrapper}>
     <Card>
-      <CardContent className="p-8">
-        <div className="flex flex-col gap-8 md:flex-row">
-          <div className="flex-shrink-0">
+      <CardContent className={styles.body}>
+        <div className={styles.layout}>
+          <div className={styles.imageWrap}>
             {info.profileImage?.url ? (
               <Image
                 src={info.profileImage.url}
@@ -27,41 +29,41 @@ export const AboutProfileCard = ({ info }: AboutProfileCardProps) => (
                 height={128}
                 sizes="128px"
                 quality={85}
-                className="h-32 w-32 rounded-2xl object-cover"
+                className={styles.profileImage}
               />
             ) : (
-              <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-blue-500 text-4xl font-bold text-white">
+              <div className={styles.fallbackImage}>
                 {info.name[0]}
               </div>
             )}
           </div>
-          <div className="flex-1">
-            <h2 className="mb-2 text-2xl font-bold">{info.name}</h2>
-            <p className="mb-4 font-medium text-sky-400">{info.title}</p>
+          <div className={styles.info}>
+            <h2 className={styles.name}>{info.name}</h2>
+            <p className={styles.title}>{info.title}</p>
             <div
-              className="prose prose-invert text-muted-foreground mb-4"
+              className={styles.bio}
               dangerouslySetInnerHTML={{ __html: info.bio.html }}
             />
-            <div className="text-muted-foreground flex flex-wrap gap-4 text-sm">
+            <div className={styles.details}>
               {info.location && (
-                <span className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4" />
+                <span className={styles.detail}>
+                  <MapPin className={styles.detailIcon} />
                   {info.location}
                 </span>
               )}
-              <span className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
+              <span className={styles.detail}>
+                <Mail className={styles.detailIcon} />
                 {info.email}
               </span>
             </div>
           </div>
         </div>
-        <Separator className="my-6" />
-        <div className="flex flex-wrap gap-3">
+        <Separator className={styles.separator} />
+        <div className={styles.actions}>
           {info.cv?.url && (
             <Button variant="gradient" asChild>
               <a href={info.cv.url} download>
-                <Download className="h-4 w-4" />
+                <Download className={styles.actionIcon} />
                 Download CV
               </a>
             </Button>
@@ -69,6 +71,7 @@ export const AboutProfileCard = ({ info }: AboutProfileCardProps) => (
           {info.linkedin && (
             <Button variant="outline" asChild>
               <a href={info.linkedin} target="_blank" rel="noopener noreferrer">
+                <SiLinkedin className={styles.actionIcon} />
                 LinkedIn
               </a>
             </Button>
@@ -76,7 +79,16 @@ export const AboutProfileCard = ({ info }: AboutProfileCardProps) => (
           {info.github && (
             <Button variant="outline" asChild>
               <a href={info.github} target="_blank" rel="noopener noreferrer">
+                <SiGithub className={styles.actionIcon} />
                 GitHub
+              </a>
+            </Button>
+          )}
+          {info.email && (
+            <Button variant="outline" asChild>
+              <a href={`mailto:${info.email}`}>
+                <Mail className={styles.actionIcon} />
+                Email
               </a>
             </Button>
           )}
