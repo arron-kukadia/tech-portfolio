@@ -108,6 +108,7 @@ export const GET_PERSONAL_INFO = `
 
 export const fetchProjects = async (): Promise<Project[]> => {
   const data = await hygraphClient.request<{ projects: Project[] }>(GET_PROJECTS)
+  data.projects.sort((a: Project, b: Project) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0))
   return data.projects
 }
 
