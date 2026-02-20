@@ -21,8 +21,8 @@
 
 .scrollArrow {
   position: absolute;
-  bottom: 2rem;
-  left: 50%;
+  bottom: -1rem;
+  left: 48%;
   transform: translateX(-50%);
   color: hsl(var(--muted-foreground));
   animation: bounce 2s ease-in-out infinite;
