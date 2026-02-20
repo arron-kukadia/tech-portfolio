@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { fetchProjects } from '@/lib/hygraph'
-import { ProjectsPageContent } from './ProjectsPageContent'
+import { ProjectsPageContent } from './ProjectsPageContent/ProjectsPageContent'
 
 export const metadata: Metadata = {
   title: 'Projects',
