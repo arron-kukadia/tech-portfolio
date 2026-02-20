@@ -35,18 +35,6 @@
   color: hsl(var(--muted-foreground) / 0.3);
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, hsl(var(--background) / 0.8), transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.card:hover .overlay {
-  opacity: 1;
-}
-
 .featuredBadge {
   position: absolute;
   top: 0.75rem;
@@ -66,6 +54,9 @@
   line-height: 1.75rem;
   font-weight: 600;
   transition: color 0.15s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card:hover .title {
@@ -78,14 +69,11 @@
   flex: 1;
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-
-.clamp {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  line-clamp: 2;
+  line-clamp: 3;
 }
 
 .tags {

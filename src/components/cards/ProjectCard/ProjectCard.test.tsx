@@ -27,18 +27,12 @@ describe('ProjectCard', () => {
   })
 
   it('renders technology badges', () => {
-    renderWithProviders(<ProjectCard project={project} variant="full" />)
+    renderWithProviders(<ProjectCard project={project} />)
 
     expect(screen.getByText('React')).toBeInTheDocument()
     expect(screen.getByText('Next.js')).toBeInTheDocument()
     expect(screen.getByText('TypeScript')).toBeInTheDocument()
     expect(screen.getByText('Prisma')).toBeInTheDocument()
-  })
-
-  it('limits technologies to 3 in compact variant with overflow badge', () => {
-    renderWithProviders(<ProjectCard project={project} variant="compact" />)
-
-    expect(screen.getByText('+1')).toBeInTheDocument()
   })
 
   it('renders GitHub link when githubUrl is provided', () => {
@@ -76,8 +70,8 @@ describe('ProjectCard', () => {
     expect(screen.getByText('P')).toBeInTheDocument()
   })
 
-  it('shows Featured badge in full variant when project is featured', () => {
-    renderWithProviders(<ProjectCard project={project} variant="full" />)
+  it('shows Featured badge when project is featured', () => {
+    renderWithProviders(<ProjectCard project={project} />)
 
     expect(screen.getByText('Featured')).toBeInTheDocument()
   })

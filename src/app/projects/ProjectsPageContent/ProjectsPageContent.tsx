@@ -16,13 +16,13 @@ export const ProjectsPageContent = ({ projects }: ProjectsPageContentProps) => (
       <motion.div {...fadeUp()} className={styles.header}>
         <h1 className={styles.heading}>Projects</h1>
         <p className={styles.description}>
-          Side projects, open source, and professional work — everything I&apos;ve shipped.
+          My side projects.
         </p>
       </motion.div>
 
       <div className={styles.grid}>
         {projects.map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} variant="full" />
+          <ProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
     </div>
