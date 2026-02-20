@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence } from 'framer-motion'
@@ -19,9 +19,30 @@ type HeaderProps = {
 export const Header = ({ info }: HeaderProps) => {
   const pathname = usePathname()
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const headerRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return
+
+    const close = () => setMobileMenuOpen(false)
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        close()
+      }
+    }
+
+    window.addEventListener('scroll', close, { passive: true })
+    document.addEventListener('mousedown', handleClickOutside)
+
+    return () => {
+      window.removeEventListener('scroll', close)
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isMobileMenuOpen])
 
   return (
-    <header className={styles.header}>
+    <header ref={headerRef} className={styles.header}>
       <nav className={styles.nav}>
         <div className={styles.inner}>
           <Link href="/" className={styles.logo}>
