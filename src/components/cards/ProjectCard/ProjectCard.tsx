@@ -35,11 +35,6 @@ export const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
               <span className={styles.placeholderText}>{project.title[0]}</span>
             </div>
           )}
-          {project.featured && (
-            <div className={styles.featuredBadge}>
-              <Badge variant="gradient">Featured</Badge>
-            </div>
-          )}
         </div>
         <CardContent className={styles.body}>
           <h3 className={styles.title}>{project.title}</h3>
