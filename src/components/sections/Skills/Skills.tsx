@@ -17,7 +17,7 @@ export const Skills = ({ skills }: SkillsProps) => {
       <div className={styles.container}>
         <motion.div {...fadeInView()} className={styles.header}>
           <h2 className={styles.heading}>Toolbox</h2>
-          <p className={styles.description}>What I reach for day-to-day.</p>
+          <p className={styles.description}>Skills I have in my locker.</p>
         </motion.div>
 
         <motion.div {...staggerContainer(0.03)} className={styles.badges}>
