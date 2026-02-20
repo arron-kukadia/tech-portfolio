@@ -7,7 +7,7 @@ import { SiGithub } from 'react-icons/si'
 import { Badge } from '@/components/ui/Badge/Badge'
 import { Button } from '@/components/ui/Button/Button'
 import { Card, CardContent } from '@/components/ui/Card/Card'
-import { fadeUp } from '@/lib/animations'
+import { fadeInView } from '@/lib/animations'
 import { Project } from '@/lib/types'
 import styles from './ProjectCard.module.css'
 
@@ -18,7 +18,7 @@ type ProjectCardProps = {
 
 export const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
   return (
-    <motion.div {...fadeUp(index * 0.1)}>
+    <motion.div {...fadeInView(index * 0.1)}>
       <Card className={styles.card}>
         <div className={styles.imageWrap}>
           {project.coverImage ? (
