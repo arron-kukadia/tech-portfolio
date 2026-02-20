@@ -49,9 +49,7 @@ const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>)
 
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${styles.body}`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} ${styles.body}`}>
         <Header info={info} />
         <main className={styles.main}>{children}</main>
         <Footer info={info} />

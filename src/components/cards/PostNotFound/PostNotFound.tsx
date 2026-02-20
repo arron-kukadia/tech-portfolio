@@ -11,7 +11,7 @@ export const PostNotFound = () => (
         <p className={styles.description}>
           The blog post you&apos;re looking for doesn&apos;t exist.
         </p>
-        <Button variant="gradient" asChild>
+        <Button variant="gradient">
           <Link href="/blog">
             <ArrowLeft className={styles.icon} />
             Back to Blog

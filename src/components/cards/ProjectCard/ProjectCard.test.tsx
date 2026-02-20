@@ -13,7 +13,9 @@ vi.mock('framer-motion', () => ({
 
 vi.mock('next/image', () => ({
   // eslint-disable-next-line @next/next/no-img-element
-  default: (props: Record<string, unknown>) => <img alt={props.alt as string} src={props.src as string} />,
+  default: (props: Record<string, unknown>) => (
+    <img alt={props.alt as string} src={props.src as string} />
+  ),
 }))
 
 describe('ProjectCard', () => {

@@ -63,7 +63,7 @@ export const Header = ({ info }: HeaderProps) => {
 
           <div className={styles.desktopActions}>
             {info?.cv?.url && (
-              <Button variant="gradient" size="sm" asChild>
+              <Button variant="gradient" size="sm">
                 <a href={info.cv.url} download>
                   <Download className={styles.downloadIcon} />
                   Download CV

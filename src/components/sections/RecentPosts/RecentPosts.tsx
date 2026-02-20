@@ -21,7 +21,7 @@ export const RecentPosts = ({ posts }: RecentPostsProps) => (
           <h2 className={styles.heading}>Writing</h2>
           <p className={styles.description}>Notes on things I&apos;ve learned.</p>
         </div>
-        <Button variant="ghost" asChild className={styles.desktopLink}>
+        <Button variant="ghost" className={styles.desktopLink}>
           <Link href="/blog">
             All
             <ArrowRight className={styles.icon} />
@@ -30,11 +30,13 @@ export const RecentPosts = ({ posts }: RecentPostsProps) => (
       </motion.div>
 
       <div className={styles.grid}>
-        {posts.map((post, index) => <PostCard key={post.id} post={post} index={index} />)}
+        {posts.map((post, index) => (
+          <PostCard key={post.id} post={post} index={index} />
+        ))}
       </div>
 
       <div className={styles.mobileLink}>
-        <Button variant="outline" asChild>
+        <Button variant="outline">
           <Link href="/blog">
             All posts
             <ArrowRight className={styles.icon} />

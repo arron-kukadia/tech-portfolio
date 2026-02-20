@@ -21,7 +21,7 @@ export const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => (
           <h2 className={styles.heading}>Selected work</h2>
           <p className={styles.description}>Things I&apos;ve built recently.</p>
         </div>
-        <Button variant="ghost" asChild className={styles.desktopLink}>
+        <Button variant="ghost" className={styles.desktopLink}>
           <Link href="/projects">
             All
             <ArrowRight className={styles.icon} />
@@ -36,7 +36,7 @@ export const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => (
       </div>
 
       <div className={styles.mobileLink}>
-        <Button variant="outline" asChild>
+        <Button variant="outline">
           <Link href="/projects">
             All projects
             <ArrowRight className={styles.icon} />

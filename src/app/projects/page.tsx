@@ -4,8 +4,7 @@ import { ProjectsPageContent } from './ProjectsPageContent/ProjectsPageContent'
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description:
-    'Explore my portfolio of web development projects.',
+  description: 'Explore my portfolio of web development projects.',
 }
 
 export const revalidate = 3600

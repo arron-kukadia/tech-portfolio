@@ -1,5 +1,12 @@
 import { describe, it, expect } from 'vitest'
-import { fadeUp, fadeInView, scaleInView, staggerContainer, scaleInChild, staggerOnMount } from './animations'
+import {
+  fadeUp,
+  fadeInView,
+  scaleInView,
+  staggerContainer,
+  scaleInChild,
+  staggerOnMount,
+} from './animations'
 
 describe('fadeUp', () => {
   it('returns correct animation config with default delay', () => {

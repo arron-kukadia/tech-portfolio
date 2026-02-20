@@ -3,13 +3,19 @@ import { Slot } from '@radix-ui/react-slot'
 import clsx from 'clsx'
 import styles from './Button.module.css'
 
-type ButtonVariant = 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | 'gradient'
+type ButtonVariant =
+  | 'default'
+  | 'destructive'
+  | 'outline'
+  | 'secondary'
+  | 'ghost'
+  | 'link'
+  | 'gradient'
 type ButtonSize = 'default' | 'sm' | 'lg' | 'icon'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant
   size?: ButtonSize
-  asChild?: boolean
 }
 
 const variantMap: Record<ButtonVariant, string> = {
@@ -30,10 +36,9 @@ const sizeMap: Record<ButtonSize, string> = {
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'default', size = 'default', asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : 'button'
+  ({ className, variant = 'default', size = 'default', ...props }, ref) => {
     return (
-      <Comp
+      <Slot
         className={clsx(styles.button, variantMap[variant], sizeMap[size], className)}
         ref={ref}
         {...props}

@@ -12,11 +12,15 @@ vi.mock('framer-motion', () => ({
 
 vi.mock('next/image', () => ({
   // eslint-disable-next-line @next/next/no-img-element
-  default: (props: Record<string, unknown>) => <img alt={props.alt as string} src={props.src as string} />,
+  default: (props: Record<string, unknown>) => (
+    <img alt={props.alt as string} src={props.src as string} />
+  ),
 }))
 
 vi.mock('next/link', () => ({
-  default: ({ children, href }: { children: React.ReactNode; href: string }) => <a href={href}>{children}</a>,
+  default: ({ children, href }: { children: React.ReactNode; href: string }) => (
+    <a href={href}>{children}</a>
+  ),
 }))
 
 describe('PostCard', () => {
@@ -26,7 +30,9 @@ describe('PostCard', () => {
     renderWithProviders(<PostCard post={post} />)
 
     expect(screen.getByText('Getting Started with Next.js')).toBeInTheDocument()
-    expect(screen.getByText('A comprehensive guide to building apps with Next.js.')).toBeInTheDocument()
+    expect(
+      screen.getByText('A comprehensive guide to building apps with Next.js.')
+    ).toBeInTheDocument()
   })
 
   it('renders formatted date', () => {

@@ -23,7 +23,7 @@ export const BlogPostContent = ({ post }: BlogPostContentProps) => {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <motion.div {...fadeUp()} className={styles.inner}>
-          <Button variant="ghost" asChild className={styles.backBtn}>
+          <Button variant="ghost" className={styles.backBtn}>
             <Link href="/blog">
               <ArrowLeft className={styles.backIcon} />
               Back to Blog

@@ -21,7 +21,9 @@ export const BlogPageContent = ({ posts }: BlogPageContentProps) => (
       </motion.div>
 
       <div className={styles.list}>
-        {posts.map((post, index) => <BlogListCard key={post.id} post={post} index={index} />)}
+        {posts.map((post, index) => (
+          <BlogListCard key={post.id} post={post} index={index} />
+        ))}
       </div>
     </div>
   </div>

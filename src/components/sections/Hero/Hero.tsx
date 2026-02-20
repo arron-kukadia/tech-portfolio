@@ -59,14 +59,14 @@ export const Hero = ({ info }: HeroProps) => {
             />
 
             <motion.div {...fadeUp(0.3)} className={styles.actions}>
-              <Button variant="gradient" size="lg" className={styles.actionBtn} asChild>
+              <Button variant="gradient" size="lg" className={styles.actionBtn}>
                 <Link href="/projects">
                   See my work
                   <ArrowRight className={styles.socialIcon} />
                 </Link>
               </Button>
               {info.cv?.url && (
-                <Button variant="outline" size="lg" className={styles.actionBtn} asChild>
+                <Button variant="outline" size="lg" className={styles.actionBtn}>
                   <a href={info.cv.url} download>
                     <Download className={styles.socialIcon} />
                     CV

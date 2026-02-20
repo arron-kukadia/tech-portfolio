@@ -32,18 +32,13 @@ export const AboutProfileCard = ({ info }: AboutProfileCardProps) => (
                 className={styles.profileImage}
               />
             ) : (
-              <div className={styles.fallbackImage}>
-                {info.name[0]}
-              </div>
+              <div className={styles.fallbackImage}>{info.name[0]}</div>
             )}
           </div>
           <div className={styles.info}>
             <h2 className={styles.name}>{info.name}</h2>
             <p className={styles.title}>{info.title}</p>
-            <div
-              className={styles.bio}
-              dangerouslySetInnerHTML={{ __html: info.bio.html }}
-            />
+            <div className={styles.bio} dangerouslySetInnerHTML={{ __html: info.bio.html }} />
             <div className={styles.details}>
               {info.location && (
                 <span className={styles.detail}>
@@ -61,7 +56,7 @@ export const AboutProfileCard = ({ info }: AboutProfileCardProps) => (
         <Separator className={styles.separator} />
         <div className={styles.actions}>
           {info.cv?.url && (
-            <Button variant="gradient" asChild>
+            <Button variant="gradient">
               <a href={info.cv.url} download>
                 <Download className={styles.actionIcon} />
                 Download CV
@@ -69,7 +64,7 @@ export const AboutProfileCard = ({ info }: AboutProfileCardProps) => (
             </Button>
           )}
           {info.linkedin && (
-            <Button variant="outline" asChild>
+            <Button variant="outline">
               <a href={info.linkedin} target="_blank" rel="noopener noreferrer">
                 <SiLinkedin className={styles.actionIcon} />
                 LinkedIn
@@ -77,7 +72,7 @@ export const AboutProfileCard = ({ info }: AboutProfileCardProps) => (
             </Button>
           )}
           {info.github && (
-            <Button variant="outline" asChild>
+            <Button variant="outline">
               <a href={info.github} target="_blank" rel="noopener noreferrer">
                 <SiGithub className={styles.actionIcon} />
                 GitHub
@@ -85,7 +80,7 @@ export const AboutProfileCard = ({ info }: AboutProfileCardProps) => (
             </Button>
           )}
           {info.email && (
-            <Button variant="outline" asChild>
+            <Button variant="outline">
               <a href={`mailto:${info.email}`}>
                 <Mail className={styles.actionIcon} />
                 Email

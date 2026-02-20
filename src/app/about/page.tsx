@@ -10,10 +10,7 @@ export const metadata: Metadata = {
 export const revalidate = 3600
 
 const AboutPage = async () => {
-  const [info, experience] = await Promise.all([
-    fetchPersonalInfo(),
-    fetchExperience(),
-  ])
+  const [info, experience] = await Promise.all([fetchPersonalInfo(), fetchExperience()])
 
   return <AboutPageContent info={info} experience={experience} />
 }

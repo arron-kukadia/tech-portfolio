@@ -21,41 +21,41 @@ export const ExperienceTimeline = ({ experience }: ExperienceTimelineProps) => (
     </h2>
     <div className={styles.list}>
       {experience.map((exp, index) => (
-          <motion.div
-            key={exp.id}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-          >
-            <Card className={styles.card}>
-              <div className={styles.accent} />
-              <CardContent className={styles.cardBody}>
-                <div className={styles.cardHeader}>
-                  <div>
-                    <h3 className={styles.role}>{exp.role}</h3>
-                    <p className={styles.company}>{exp.company}</p>
-                  </div>
-                  <div className={styles.date}>
-                    <Calendar className={styles.dateIcon} />
-                    {formatDateShort(exp.startDate)} -{' '}
-                    {exp.current ? 'Present' : formatDateShort(exp.endDate!)}
-                  </div>
+        <motion.div
+          key={exp.id}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, delay: index * 0.1 }}
+        >
+          <Card className={styles.card}>
+            <div className={styles.accent} />
+            <CardContent className={styles.cardBody}>
+              <div className={styles.cardHeader}>
+                <div>
+                  <h3 className={styles.role}>{exp.role}</h3>
+                  <p className={styles.company}>{exp.company}</p>
                 </div>
-                <div
-                  className={styles.description}
-                  dangerouslySetInnerHTML={{ __html: exp.description.html }}
-                />
-                <div className={styles.tags}>
-                  {exp.technologies.map((tech) => (
-                    <Badge key={tech} variant="gradient">
-                      {tech}
-                    </Badge>
-                  ))}
+                <div className={styles.date}>
+                  <Calendar className={styles.dateIcon} />
+                  {formatDateShort(exp.startDate)} -{' '}
+                  {exp.current ? 'Present' : formatDateShort(exp.endDate!)}
                 </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
+              </div>
+              <div
+                className={styles.description}
+                dangerouslySetInnerHTML={{ __html: exp.description.html }}
+              />
+              <div className={styles.tags}>
+                {exp.technologies.map((tech) => (
+                  <Badge key={tech} variant="gradient">
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))}
     </div>
   </motion.div>
 )

@@ -16,21 +16,21 @@ npm run dev
 
 ## Environment Variables
 
-| Variable                       | Description                       |
-| ------------------------------ | --------------------------------- |
-| `NEXT_PUBLIC_HYGRAPH_ENDPOINT` | Hygraph Content API endpoint      |
-| `NEXT_PUBLIC_HYGRAPH_TOKEN`    | Permanent Auth Token (if required)|
+| Variable                       | Description                        |
+| ------------------------------ | ---------------------------------- |
+| `NEXT_PUBLIC_HYGRAPH_ENDPOINT` | Hygraph Content API endpoint       |
+| `NEXT_PUBLIC_HYGRAPH_TOKEN`    | Permanent Auth Token (if required) |
 
 ## Scripts
 
-| Command              | Description              |
-| -------------------- | ------------------------ |
-| `npm run dev`        | Start dev server         |
-| `npm run build`      | Production build         |
-| `npm run start`      | Serve production build   |
-| `npm run test`       | Run tests                |
-| `npm run lint`       | Run ESLint               |
-| `npm run format`     | Format with Prettier     |
+| Command          | Description            |
+| ---------------- | ---------------------- |
+| `npm run dev`    | Start dev server       |
+| `npm run build`  | Production build       |
+| `npm run start`  | Serve production build |
+| `npm run test`   | Run tests              |
+| `npm run lint`   | Run ESLint             |
+| `npm run format` | Format with Prettier   |
 
 ## Deployment
 

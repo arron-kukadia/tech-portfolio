@@ -15,9 +15,7 @@ export const ProjectsPageContent = ({ projects }: ProjectsPageContentProps) => (
     <div className={styles.container}>
       <motion.div {...fadeUp()} className={styles.header}>
         <h1 className={styles.heading}>Projects</h1>
-        <p className={styles.description}>
-          My side projects.
-        </p>
+        <p className={styles.description}>My side projects.</p>
       </motion.div>
 
       <div className={styles.grid}>

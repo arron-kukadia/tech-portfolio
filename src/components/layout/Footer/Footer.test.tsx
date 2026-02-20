@@ -27,8 +27,14 @@ describe('Footer', () => {
     renderWithProviders(<Footer info={mockPersonalInfo} />)
 
     expect(screen.getByLabelText('GitHub')).toHaveAttribute('href', 'https://github.com/testuser')
-    expect(screen.getByLabelText('LinkedIn')).toHaveAttribute('href', 'https://linkedin.com/in/testuser')
-    expect(screen.getByLabelText('Instagram')).toHaveAttribute('href', 'https://instagram.com/testuser')
+    expect(screen.getByLabelText('LinkedIn')).toHaveAttribute(
+      'href',
+      'https://linkedin.com/in/testuser'
+    )
+    expect(screen.getByLabelText('Instagram')).toHaveAttribute(
+      'href',
+      'https://instagram.com/testuser'
+    )
     expect(screen.getByLabelText('Email')).toHaveAttribute('href', 'mailto:test@example.com')
   })
 
@@ -46,7 +52,6 @@ describe('Footer', () => {
     const year = new Date().getFullYear().toString()
     expect(screen.getByText(new RegExp(`© ${year}`))).toBeInTheDocument()
   })
-
 })
 
 describe('Footer without personal info', () => {

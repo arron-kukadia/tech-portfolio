@@ -33,7 +33,7 @@ export const MobileMenu = ({ pathname, cvUrl, onNavigate }: MobileMenuProps) => 
       ))}
       {cvUrl && (
         <div className={styles.cvWrap}>
-          <Button variant="gradient" size="sm" className={styles.cv} asChild>
+          <Button variant="gradient" size="sm" className={styles.cv}>
             <a href={cvUrl} download>
               <Download className={styles.downloadIcon} />
               Download CV

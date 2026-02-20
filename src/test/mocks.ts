@@ -79,7 +79,9 @@ export const mockBlogPosts: BlogPost[] = [
 
 export const mockBlogPost: BlogPost = {
   ...mockBlogPosts[0],
-  content: { html: '<p>This is the full blog post content.</p><pre><code>const x = 1;</code></pre>' },
+  content: {
+    html: '<p>This is the full blog post content.</p><pre><code>const x = 1;</code></pre>',
+  },
 }
 
 export const mockExperience: Experience[] = [
@@ -87,7 +89,9 @@ export const mockExperience: Experience[] = [
     id: '1',
     company: 'Tech Corp',
     role: 'Senior Frontend Engineer',
-    description: { html: '<ul><li>Led frontend architecture redesign</li><li>Mentored junior developers</li></ul>' },
+    description: {
+      html: '<ul><li>Led frontend architecture redesign</li><li>Mentored junior developers</li></ul>',
+    },
     startDate: '2023-01-01T00:00:00Z',
     current: true,
     technologies: ['React', 'TypeScript', 'Next.js'],

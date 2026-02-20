@@ -17,7 +17,6 @@ type ProjectCardProps = {
 }
 
 export const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
-
   return (
     <motion.div {...fadeUp(index * 0.1)}>
       <Card className={styles.card}>
@@ -38,9 +37,7 @@ export const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
         </div>
         <CardContent className={styles.body}>
           <h3 className={styles.title}>{project.title}</h3>
-          <p className={styles.description}>
-            {project.description}
-          </p>
+          <p className={styles.description}>{project.description}</p>
           <div className={styles.tags}>
             {project.technologies.map((tech) => (
               <Badge key={tech} variant="gradient">
@@ -50,7 +47,7 @@ export const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
           </div>
           <div className={styles.actions}>
             {project.githubUrl && (
-              <Button variant="outline" size="sm" asChild>
+              <Button variant="outline" size="sm">
                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                   <SiGithub className={styles.actionIcon} />
                   Code
@@ -58,7 +55,7 @@ export const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
               </Button>
             )}
             {project.liveUrl && (
-              <Button variant="gradient" size="sm" asChild>
+              <Button variant="gradient" size="sm">
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className={styles.actionIcon} />
                   View Live
