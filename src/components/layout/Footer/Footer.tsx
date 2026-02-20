@@ -28,7 +28,6 @@ export const Footer = ({ info }: FooterProps) => {
             {info.name}
             <span className={styles.accent}>.</span>
           </Link>
-          <p className={styles.tagline}>{info.tagline}</p>
           <div className={styles.socialLinks}>
             {socialLinks.map(({ href, icon: Icon, label }) => (
               <a
@@ -46,6 +45,7 @@ export const Footer = ({ info }: FooterProps) => {
         </div>
 
         <div className={styles.bottom}>
+          <p className={styles.tagline}>{info.tagline}</p>
           <p className={styles.copyright}>
             © {new Date().getFullYear()} {info.name}
           </p>

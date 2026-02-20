@@ -3,7 +3,7 @@
   display: flex;
   min-height: calc(100vh - 4rem);
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem 0 3rem;
 
   @media (min-width: 640px) {
     padding: 5rem 0;
@@ -21,7 +21,7 @@
 
 .scrollArrow {
   position: absolute;
-  bottom: -1rem;
+  bottom: 1rem;
   left: 48%;
   transform: translateX(-50%);
   color: hsl(var(--muted-foreground));
