@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { BlogListCard } from '@/components/cards/BlogListCard'
-import { BlogPost } from '@/lib/types'
 import { fadeUp } from '@/lib/animations'
+import { BlogPost } from '@/lib/types'
 
 type BlogPageContentProps = {
   posts: BlogPost[]

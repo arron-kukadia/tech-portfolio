@@ -2,11 +2,11 @@
 
 import { motion } from 'framer-motion'
 import { Briefcase, Calendar } from 'lucide-react'
-import { Card, CardContent } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
+import { Card, CardContent } from '@/components/ui/Card'
 import { fadeUp } from '@/lib/animations'
-import { formatDateShort } from '@/lib/utils'
 import { Experience } from '@/lib/types'
+import { formatDateShort } from '@/lib/utils'
 
 type ExperienceTimelineProps = {
   experience: Experience[]

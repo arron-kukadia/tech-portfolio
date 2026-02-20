@@ -1,14 +1,14 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { Calendar, ArrowRight } from 'lucide-react'
-import { Card, CardContent } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
+import { Card, CardContent } from '@/components/ui/Card'
 import { fadeUp } from '@/lib/animations'
-import { formatDateLong } from '@/lib/utils'
 import { BlogPost } from '@/lib/types'
+import { formatDateLong } from '@/lib/utils'
 
 type BlogListCardProps = {
   post: BlogPost

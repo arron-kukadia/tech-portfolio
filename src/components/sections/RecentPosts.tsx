@@ -1,12 +1,12 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
 import { PostCard } from '@/components/cards/PostCard'
-import { BlogPost } from '@/lib/types'
+import { Button } from '@/components/ui/Button'
 import { fadeInView } from '@/lib/animations'
+import { BlogPost } from '@/lib/types'
 
 type RecentPostsProps = {
   posts: BlogPost[]

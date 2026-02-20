@@ -1,9 +1,9 @@
-import { describe, it, expect, vi } from 'vitest'
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { describe, it, expect, vi } from 'vitest'
 import { Header } from '@/components/layout/Header'
-import { renderWithProviders } from '@/test/test-utils'
 import { mockPersonalInfo } from '@/test/mocks'
+import { renderWithProviders } from '@/test/test-utils'
 
 const mockPathname = '/'
 

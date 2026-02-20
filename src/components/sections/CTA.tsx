@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion'
 import { Mail, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { PersonalInfo } from '@/lib/types'
 import { fadeInView } from '@/lib/animations'
+import { PersonalInfo } from '@/lib/types'
 
 type CTAProps = {
   info: PersonalInfo | null

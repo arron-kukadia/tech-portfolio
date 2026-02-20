@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { ProjectCard } from '@/components/cards/ProjectCard'
-import { Project } from '@/lib/types'
 import { fadeUp } from '@/lib/animations'
+import { Project } from '@/lib/types'
 
 type ProjectsPageContentProps = {
   projects: Project[]

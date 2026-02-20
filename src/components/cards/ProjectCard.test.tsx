@@ -1,8 +1,8 @@
-import { describe, it, expect, vi } from 'vitest'
 import { screen } from '@testing-library/react'
+import { describe, it, expect, vi } from 'vitest'
 import { ProjectCard } from '@/components/cards/ProjectCard'
-import { renderWithProviders } from '@/test/test-utils'
 import { mockProjects } from '@/test/mocks'
+import { renderWithProviders } from '@/test/test-utils'
 
 vi.mock('framer-motion', () => ({
   motion: {

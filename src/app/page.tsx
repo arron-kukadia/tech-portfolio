@@ -1,9 +1,9 @@
-import { fetchPersonalInfo, fetchProjects, fetchBlogPosts } from '@/lib/hygraph'
-import { Hero } from '@/components/sections/Hero'
-import { FeaturedProjects } from '@/components/sections/FeaturedProjects'
-import { Skills } from '@/components/sections/Skills'
-import { RecentPosts } from '@/components/sections/RecentPosts'
 import { CTA } from '@/components/sections/CTA'
+import { FeaturedProjects } from '@/components/sections/FeaturedProjects'
+import { Hero } from '@/components/sections/Hero'
+import { RecentPosts } from '@/components/sections/RecentPosts'
+import { Skills } from '@/components/sections/Skills'
+import { fetchPersonalInfo, fetchProjects, fetchBlogPosts } from '@/lib/hygraph'
 
 export const revalidate = 3600
 

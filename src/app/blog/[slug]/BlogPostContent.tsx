@@ -1,14 +1,14 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { Calendar, ArrowLeft, Tag } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
-import { Badge } from '@/components/ui/Badge'
 import { PostNotFound } from '@/components/cards/PostNotFound'
-import { BlogPost } from '@/lib/types'
+import { Badge } from '@/components/ui/Badge'
+import { Button } from '@/components/ui/Button'
 import { fadeUp } from '@/lib/animations'
+import { BlogPost } from '@/lib/types'
 import { formatDateLong } from '@/lib/utils'
 
 type BlogPostContentProps = {

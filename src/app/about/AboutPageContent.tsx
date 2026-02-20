@@ -2,10 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { AboutProfileCard } from '@/components/sections/AboutProfileCard'
-import { ExperienceTimeline } from '@/components/sections/ExperienceTimeline'
 import { AboutSkills } from '@/components/sections/AboutSkills'
-import { Experience, PersonalInfo } from '@/lib/types'
+import { ExperienceTimeline } from '@/components/sections/ExperienceTimeline'
 import { fadeUp } from '@/lib/animations'
+import { Experience, PersonalInfo } from '@/lib/types'
 
 type AboutPageContentProps = {
   info: PersonalInfo | null

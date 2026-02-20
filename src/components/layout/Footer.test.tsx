@@ -1,8 +1,8 @@
-import { describe, it, expect, vi } from 'vitest'
 import { screen } from '@testing-library/react'
+import { describe, it, expect, vi } from 'vitest'
 import { Footer } from '@/components/layout/Footer'
-import { renderWithProviders } from '@/test/test-utils'
 import { mockPersonalInfo } from '@/test/mocks'
+import { renderWithProviders } from '@/test/test-utils'
 
 vi.mock('next/link', () => ({
   default: ({ children, href }: { children: React.ReactNode; href: string }) => (

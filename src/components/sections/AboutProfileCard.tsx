@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { Download, MapPin, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Card, CardContent } from '@/components/ui/Card'

@@ -1,11 +1,11 @@
-import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { fetchPersonalInfo } from '@/lib/hygraph'
-import { ThemeProvider } from '@/components/ThemeProvider'
-import { Header } from '@/components/layout/Header'
+import { Analytics } from '@vercel/analytics/next'
+import type { Metadata } from 'next'
 import { Footer } from '@/components/layout/Footer'
+import { Header } from '@/components/layout/Header'
+import { ThemeProvider } from '@/components/ThemeProvider'
+import { fetchPersonalInfo } from '@/lib/hygraph'
 import './globals.css'
-import { Analytics } from '@vercel/analytics/next';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',

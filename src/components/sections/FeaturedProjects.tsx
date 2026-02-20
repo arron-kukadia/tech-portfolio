@@ -1,12 +1,12 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
 import { ProjectCard } from '@/components/cards/ProjectCard'
-import { Project } from '@/lib/types'
+import { Button } from '@/components/ui/Button'
 import { fadeInView } from '@/lib/animations'
+import { Project } from '@/lib/types'
 
 type FeaturedProjectsProps = {
   projects: Project[]

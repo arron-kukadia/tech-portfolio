@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { Mail, Heart } from 'lucide-react'
 import { SiGithub, SiLinkedin, SiInstagram } from 'react-icons/si'
-import { PersonalInfo } from '@/lib/types'
 import { NAV_ITEMS } from '@/lib/constants'
+import { PersonalInfo } from '@/lib/types'
 
 type FooterProps = {
   info: PersonalInfo | null

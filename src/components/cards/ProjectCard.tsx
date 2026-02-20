@@ -1,15 +1,15 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import { SiGithub } from 'react-icons/si'
+import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Card, CardContent } from '@/components/ui/Card'
-import { Badge } from '@/components/ui/Badge'
 import { fadeInView, fadeUp } from '@/lib/animations'
-import { cn } from '@/lib/utils'
 import { Project } from '@/lib/types'
+import { cn } from '@/lib/utils'
 
 type ProjectCardProps = {
   project: Project

@@ -1,12 +1,12 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
 import { SiGithub, SiLinkedin, SiInstagram } from 'react-icons/si'
-import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
-import { PersonalInfo } from '@/lib/types'
 import { fadeUp } from '@/lib/animations'
+import { PersonalInfo } from '@/lib/types'
 
 type HeroProps = {
   info: PersonalInfo | null

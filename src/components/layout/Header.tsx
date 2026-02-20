@@ -5,12 +5,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Download } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
 import { NavLink } from '@/components/layout/NavLink'
 import { ThemeToggle } from '@/components/layout/ThemeToggle'
-import { useThemeStore } from '@/store/themeStore'
-import { PersonalInfo } from '@/lib/types'
+import { Button } from '@/components/ui/Button'
 import { NAV_ITEMS } from '@/lib/constants'
+import { PersonalInfo } from '@/lib/types'
+import { useThemeStore } from '@/store/themeStore'
 
 type HeaderProps = {
   info: PersonalInfo | null
