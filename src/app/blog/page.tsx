@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { fetchBlogPosts } from '@/lib/hygraph'
-import { BlogPageContent } from './BlogPageContent'
+import { BlogPageContent } from './BlogPageContent/BlogPageContent'
 
 export const metadata: Metadata = {
   title: 'Blog',

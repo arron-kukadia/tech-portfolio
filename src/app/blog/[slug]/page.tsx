@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { fetchBlogPost, fetchBlogPosts } from '@/lib/hygraph'
-import { BlogPostContent } from './BlogPostContent'
+import { BlogPostContent } from './BlogPostContent/BlogPostContent'
 
 type Props = {
   params: Promise<{ slug: string }>
