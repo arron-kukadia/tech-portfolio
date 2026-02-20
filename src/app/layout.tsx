@@ -1,10 +1,10 @@
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
-import { Footer } from '@/components/layout/Footer'
-import { Header } from '@/components/layout/Header'
-import { ThemeProvider } from '@/components/ThemeProvider'
+import { Footer } from '@/components/layout/Footer/Footer'
+import { Header } from '@/components/layout/Header/Header'
 import { fetchPersonalInfo } from '@/lib/hygraph'
+import styles from './layout.module.css'
 import './globals.css'
 
 const geistSans = Geist({
@@ -48,15 +48,13 @@ const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>)
   const info = await fetchPersonalInfo()
 
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} ${styles.body}`}
       >
-        <ThemeProvider>
-          <Header info={info} />
-          <main className="flex-1 pt-16">{children}</main>
-          <Footer info={info} />
-        </ThemeProvider>
+        <Header info={info} />
+        <main className={styles.main}>{children}</main>
+        <Footer info={info} />
         <Analytics />
       </body>
     </html>
