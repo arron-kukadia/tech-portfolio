@@ -5,12 +5,11 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Download } from 'lucide-react'
-import { NavLink } from '@/components/layout/NavLink'
-import { ThemeToggle } from '@/components/layout/ThemeToggle'
-import { Button } from '@/components/ui/Button'
+import { NavLink } from '@/components/layout/NavLink/NavLink'
+import { Button } from '@/components/ui/Button/Button'
 import { NAV_ITEMS } from '@/lib/constants'
 import { PersonalInfo } from '@/lib/types'
-import { useThemeStore } from '@/store/themeStore'
+import styles from './Header.module.css'
 
 type HeaderProps = {
   info: PersonalInfo | null
@@ -18,21 +17,18 @@ type HeaderProps = {
 
 export const Header = ({ info }: HeaderProps) => {
   const pathname = usePathname()
-  const { theme, toggleTheme } = useThemeStore()
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-background/80 border-border/50 fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-md will-change-transform">
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <Link
-            href="/"
-            className="bg-gradient-to-r from-sky-500 to-blue-500 bg-clip-text text-xl font-bold text-transparent"
-          >
+    <header className={styles.header}>
+      <nav className={styles.nav}>
+        <div className={styles.inner}>
+          <Link href="/" className={styles.logo}>
             {info?.name || 'Portfolio'}
+            <span className={styles.accent}>.</span>
           </Link>
 
-          <div className="hidden items-center gap-1 md:flex">
+          <div className={styles.desktopNav}>
             {NAV_ITEMS.map((item) => (
               <NavLink
                 key={item.href}
@@ -43,27 +39,29 @@ export const Header = ({ info }: HeaderProps) => {
             ))}
           </div>
 
-          <div className="hidden items-center gap-2 md:flex">
-            <ThemeToggle theme={theme} onToggle={toggleTheme} />
+          <div className={styles.desktopActions}>
             {info?.cv?.url && (
               <Button variant="gradient" size="sm" asChild>
                 <a href={info.cv.url} download>
-                  <Download className="h-4 w-4" />
+                  <Download className={styles.downloadIcon} />
                   Download CV
                 </a>
               </Button>
             )}
           </div>
 
-          <div className="flex items-center gap-2 md:hidden">
-            <ThemeToggle theme={theme} onToggle={toggleTheme} />
+          <div className={styles.mobileActions}>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setMobileMenuOpen((prev) => !prev)}
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMobileMenuOpen ? (
+                <X className={styles.menuIcon} />
+              ) : (
+                <Menu className={styles.menuIcon} />
+              )}
             </Button>
           </div>
         </div>
@@ -75,9 +73,9 @@ export const Header = ({ info }: HeaderProps) => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="overflow-hidden md:hidden"
+              className={styles.mobileMenu}
             >
-              <div className="flex flex-col gap-2 py-4">
+              <div className={styles.mobileMenuContent}>
                 {NAV_ITEMS.map((item) => (
                   <NavLink
                     key={item.href}
@@ -85,14 +83,13 @@ export const Header = ({ info }: HeaderProps) => {
                     label={item.label}
                     isActive={pathname === item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block w-full"
                   />
                 ))}
                 {info?.cv?.url && (
-                  <div className="pt-2">
-                    <Button variant="gradient" size="sm" className="w-full" asChild>
+                  <div className={styles.mobileMenuCvWrap}>
+                    <Button variant="gradient" size="sm" className={styles.mobileMenuCv} asChild>
                       <a href={info.cv.url} download>
-                        <Download className="h-4 w-4" />
+                        <Download className={styles.downloadIcon} />
                         Download CV
                       </a>
                     </Button>

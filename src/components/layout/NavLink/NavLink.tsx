@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { cn } from '@/lib/utils'
+import clsx from 'clsx'
+import styles from './NavLink.module.css'
 
 type NavLinkProps = {
   href: string
@@ -14,13 +15,7 @@ export const NavLink = ({ href, label, isActive, onClick, className }: NavLinkPr
     href={href}
     onClick={onClick}
     aria-current={isActive ? 'page' : undefined}
-    className={cn(
-      'rounded-lg px-4 py-2 text-sm font-medium transition-colors',
-      isActive
-        ? 'text-foreground bg-accent'
-        : 'text-muted-foreground hover:text-foreground hover:bg-accent/50',
-      className
-    )}
+    className={clsx(styles.link, isActive && styles.active, className)}
   >
     {label}
   </Link>

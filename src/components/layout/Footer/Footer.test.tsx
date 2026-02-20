@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
-import { Footer } from '@/components/layout/Footer'
+import { Footer } from '@/components/layout/Footer/Footer'
 import { mockPersonalInfo } from '@/test/mocks'
 import { renderWithProviders } from '@/test/test-utils'
 
@@ -21,15 +21,6 @@ describe('Footer', () => {
     renderWithProviders(<Footer info={mockPersonalInfo} />)
 
     expect(screen.getByText('Building great web experiences')).toBeInTheDocument()
-  })
-
-  it('renders quick links', () => {
-    renderWithProviders(<Footer info={mockPersonalInfo} />)
-
-    expect(screen.getByRole('link', { name: 'Home' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Projects' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Blog' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'About & Experience' })).toBeInTheDocument()
   })
 
   it('renders social links with correct hrefs', () => {

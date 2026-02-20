@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect, vi } from 'vitest'
-import { Header } from '@/components/layout/Header'
+import { Header } from '@/components/layout/Header/Header'
 import { mockPersonalInfo } from '@/test/mocks'
 import { renderWithProviders } from '@/test/test-utils'
 
@@ -46,13 +46,6 @@ describe('Header', () => {
     const cvLinks = screen.getAllByRole('link', { name: /download cv/i })
     expect(cvLinks.length).toBeGreaterThan(0)
     expect(cvLinks[0]).toHaveAttribute('href', 'https://example.com/cv.pdf')
-  })
-
-  it('renders theme toggle buttons (desktop + mobile)', () => {
-    renderWithProviders(<Header info={mockPersonalInfo} />)
-
-    const toggleButtons = screen.getAllByLabelText('Toggle theme')
-    expect(toggleButtons).toHaveLength(2)
   })
 
   it('renders mobile menu toggle button', () => {
