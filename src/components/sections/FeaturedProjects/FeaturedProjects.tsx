@@ -23,7 +23,7 @@ export const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => (
         </div>
         <Button variant="ghost" asChild className={styles.desktopLink}>
           <Link href="/projects">
-            All projects
+            All
             <ArrowRight className={styles.icon} />
           </Link>
         </Button>
@@ -35,14 +35,14 @@ export const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => (
         ))}
       </div>
 
-      <motion.div {...fadeInView(0.3)} className={styles.mobileLink}>
-        <Button variant="ghost" asChild>
+      <div className={styles.mobileLink}>
+        <Button variant="outline" asChild>
           <Link href="/projects">
             All projects
             <ArrowRight className={styles.icon} />
           </Link>
         </Button>
-      </motion.div>
+      </div>
     </div>
   </section>
 )

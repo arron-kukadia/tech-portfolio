@@ -4,17 +4,17 @@
 
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 1rem;
-}
+  padding: 0 var(--padding-x);
 
-@media (min-width: 640px) {
-  .container { padding: 0 1.5rem; }
-}
+  @media (min-width: 640px) {
+    padding: 0 var(--padding-x-sm);
+  }
 
-@media (min-width: 1024px) {
-  .container { padding: 0 2rem; }
+  @media (min-width: 1024px) {
+    padding: 0 var(--padding-x-lg);
+  }
 }
 
 .inner {
@@ -57,14 +57,16 @@
   font-weight: 700;
   font-size: 1.875rem;
   line-height: 2.25rem;
-}
 
-@media (min-width: 640px) {
-  .heading { font-size: 2.25rem; line-height: 2.5rem; }
-}
+  @media (min-width: 640px) {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
 
-@media (min-width: 1024px) {
-  .heading { font-size: 3rem; line-height: 1; }
+  @media (min-width: 1024px) {
+    font-size: 3rem;
+    line-height: 1;
+  }
 }
 
 .tags {
@@ -91,14 +93,14 @@
   overflow: hidden;
   border-radius: 0.75rem;
   height: 16rem;
-}
 
-@media (min-width: 640px) {
-  .coverWrap { height: 20rem; }
-}
+  @media (min-width: 640px) {
+    height: 20rem;
+  }
 
-@media (min-width: 1024px) {
-  .coverWrap { height: 24rem; }
+  @media (min-width: 1024px) {
+    height: 24rem;
+  }
 }
 
 .coverImage {

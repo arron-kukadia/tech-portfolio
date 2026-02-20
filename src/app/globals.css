@@ -18,6 +18,10 @@
   --input: 240 3.7% 15.9%;
   --ring: 199 89% 48%;
   --radius: 0.5rem;
+  --max-width: 1280px;
+  --padding-x: 1rem;
+  --padding-x-sm: 1.5rem;
+  --padding-x-lg: 2rem;
 }
 
 *,

@@ -23,7 +23,7 @@ export const RecentPosts = ({ posts }: RecentPostsProps) => (
         </div>
         <Button variant="ghost" asChild className={styles.desktopLink}>
           <Link href="/blog">
-            All posts
+            All
             <ArrowRight className={styles.icon} />
           </Link>
         </Button>
@@ -33,14 +33,14 @@ export const RecentPosts = ({ posts }: RecentPostsProps) => (
         {posts.map((post, index) => <PostCard key={post.id} post={post} index={index} />)}
       </div>
 
-      <motion.div {...fadeInView(0.3)} className={styles.mobileLink}>
-        <Button variant="ghost" asChild>
+      <div className={styles.mobileLink}>
+        <Button variant="outline" asChild>
           <Link href="/blog">
             All posts
             <ArrowRight className={styles.icon} />
           </Link>
         </Button>
-      </motion.div>
+      </div>
     </div>
   </section>
 )
