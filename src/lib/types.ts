@@ -37,6 +37,7 @@ export type PersonalInfo = {
   title: string
   tagline: string
   bio: { html: string }
+  bioShort: { html: string }
   location: string
   email: string
   linkedin: string

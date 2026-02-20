@@ -43,7 +43,7 @@ export const Hero = ({ info }: HeroProps) => {
           <motion.div
             {...fadeUp(0.2)}
             className="prose prose-invert text-muted-foreground mx-auto mb-8 max-w-2xl text-lg sm:text-xl"
-            dangerouslySetInnerHTML={{ __html: info.bio.html }}
+            dangerouslySetInnerHTML={{ __html: info.bioShort.html }}
           />
 
           <motion.div
