@@ -1,0 +1,41 @@
+.wrapper {
+  padding: 5rem 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container { padding: 0 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .container { padding: 0 2rem; }
+}
+
+.inner {
+  max-width: 48rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heading {
+  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+}
+
+.description {
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 2rem;
+}
+
+.icon {
+  height: 1rem;
+  width: 1rem;
+}

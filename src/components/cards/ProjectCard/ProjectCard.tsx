@@ -1,15 +1,16 @@
 'use client'
 
 import Image from 'next/image'
+import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import { SiGithub } from 'react-icons/si'
-import { Badge } from '@/components/ui/Badge'
-import { Button } from '@/components/ui/Button'
-import { Card, CardContent } from '@/components/ui/Card'
+import { Badge } from '@/components/ui/Badge/Badge'
+import { Button } from '@/components/ui/Button/Button'
+import { Card, CardContent } from '@/components/ui/Card/Card'
 import { fadeInView, fadeUp } from '@/lib/animations'
 import { Project } from '@/lib/types'
-import { cn } from '@/lib/utils'
+import styles from './ProjectCard.module.css'
 
 type ProjectCardProps = {
   project: Project
@@ -25,38 +26,34 @@ export const ProjectCard = ({ project, index = 0, variant = 'compact' }: Project
 
   return (
     <motion.div {...animation}>
-      <Card className="group flex h-full flex-col overflow-hidden">
-        <div className="relative h-48 overflow-hidden">
+      <Card className={styles.card}>
+        <div className={styles.imageWrap}>
           {project.coverImage ? (
             <Image
               src={project.coverImage.url}
               alt={project.title}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className={styles.image}
             />
           ) : (
-            <div className="flex h-full items-center justify-center bg-gradient-to-br from-sky-500/20 to-blue-500/20">
-              <span className="text-muted-foreground/30 text-4xl font-bold">{project.title[0]}</span>
+            <div className={styles.placeholder}>
+              <span className={styles.placeholderText}>{project.title[0]}</span>
             </div>
           )}
-          {isCompact && (
-            <div className="from-background/80 absolute inset-0 bg-gradient-to-t to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-          )}
+          {isCompact && <div className={styles.overlay} />}
           {!isCompact && project.featured && (
-            <div className="absolute top-3 right-3">
+            <div className={styles.featuredBadge}>
               <Badge variant="gradient">Featured</Badge>
             </div>
           )}
         </div>
-        <CardContent className="flex flex-1 flex-col p-6">
-          <h3 className="mb-2 text-xl font-semibold transition-colors group-hover:text-sky-400">
-            {project.title}
-          </h3>
-          <p className={cn('text-muted-foreground mb-4 flex-1 text-sm', isCompact && 'line-clamp-2')}>
+        <CardContent className={styles.body}>
+          <h3 className={styles.title}>{project.title}</h3>
+          <p className={clsx(styles.description, isCompact && styles.clamp)}>
             {project.description}
           </p>
-          <div className="mb-4 flex flex-wrap gap-2">
+          <div className={styles.tags}>
             {technologies.map((tech) => (
               <Badge key={tech} variant="gradient">
                 {tech}
@@ -66,11 +63,11 @@ export const ProjectCard = ({ project, index = 0, variant = 'compact' }: Project
               <Badge variant="outline">+{project.technologies.length - 3}</Badge>
             )}
           </div>
-          <div className="flex gap-2">
+          <div className={styles.actions}>
             {project.githubUrl && (
               <Button variant="outline" size="sm" asChild>
                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                  <SiGithub className="h-4 w-4" />
+                  <SiGithub className={styles.actionIcon} />
                   Code
                 </a>
               </Button>
@@ -78,7 +75,7 @@ export const ProjectCard = ({ project, index = 0, variant = 'compact' }: Project
             {project.liveUrl && (
               <Button variant={isCompact ? 'outline' : 'gradient'} size="sm" asChild>
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="h-4 w-4" />
+                  <ExternalLink className={styles.actionIcon} />
                   {isCompact ? 'Live' : 'View Live'}
                 </a>
               </Button>

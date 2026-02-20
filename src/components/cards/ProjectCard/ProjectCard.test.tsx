@@ -1,18 +1,19 @@
 import { screen } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
-import { ProjectCard } from '@/components/cards/ProjectCard'
+import { ProjectCard } from '@/components/cards/ProjectCard/ProjectCard'
 import { mockProjects } from '@/test/mocks'
 import { renderWithProviders } from '@/test/test-utils'
 
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+    div: ({ children }: Record<string, unknown>) => <div>{children as React.ReactNode}</div>,
   },
-  AnimatePresence: ({ children }: any) => <>{children}</>,
+  AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }))
 
 vi.mock('next/image', () => ({
-  default: (props: any) => <img {...props} />,
+  // eslint-disable-next-line @next/next/no-img-element
+  default: (props: Record<string, unknown>) => <img alt={props.alt as string} src={props.src as string} />,
 }))
 
 describe('ProjectCard', () => {
